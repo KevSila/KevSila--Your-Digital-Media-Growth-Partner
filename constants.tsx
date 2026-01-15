@@ -2,6 +2,9 @@
 export const BRAND_NAME = "Kevin Sila - Your Digital Media Growth Partner";
 export const FULL_BRAND_NAME = "Kevin Sila - Your Digital Media Growth Partner";
 export const PHONE_NUMBER = "+254 717 578 394";
+export const TEL_LINK = "tel:+254717578394";
+export const EMAIL_ADDRESS = "kevinsila100@gmail.com";
+export const MAILTO_LINK = "mailto:kevinsila100@gmail.com";
 export const WHATSAPP_LINK = `https://wa.me/254717578394?text=Hello!%20I'm%20interested%20in%20a%20Free%20National%20Digital%20Growth%20Audit.`;
 
 export const KENYAN_CITIES = [
@@ -12,12 +15,17 @@ export const KENYAN_CITIES = [
 
 export const NAV_LINKS = [
   { name: 'Services', href: '#services' },
-  { name: 'Industries', href: '#industries' },
-  { name: 'Remote Flow', href: '#remote' },
+  { name: 'Sectors', href: '#industries' },
+  { name: 'AI Integration', href: '#ai-integration' },
   { name: 'Growth Audit', href: '#audit' },
 ];
 
 export const SERVICE_PILLARS = [
+  {
+    title: "AI Integration",
+    description: "Automate repetitive tasks, inventory tracking, and sales predictions to save time and money.",
+    icon: "Cpu"
+  },
   {
     title: "Website Creation",
     description: "High-speed, conversion-optimized websites built for modern Kenyan businesses.",
@@ -42,41 +50,50 @@ export const SERVICE_PILLARS = [
     title: "High-Performance Ads",
     description: "Hyper-targeted Meta and Google campaigns designed for nationwide reach.",
     icon: "TrendingUp"
-  },
-  {
-    title: "SaaS-Style Identity",
-    description: "Premium, minimalist digital branding that builds instant trust globally.",
-    icon: "Layers"
   }
 ];
 
 export const BENTO_INDUSTRIES = [
   {
-    title: "E-commerce",
-    subtitle: "Nationwide Logistics Integration",
-    description: "Scale your retail business across 47 counties with automated ordering.",
-    size: "large",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Law & Consultancies",
-    subtitle: "High-Trust Lead Generation",
-    description: "Position your professional services as the top choice in Kenya.",
-    size: "small",
-    image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Healthcare",
-    subtitle: "Automated Patient Scheduling",
-    description: "Smart bots for clinics from Eldoret to Nairobi.",
-    size: "small",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Real Estate",
-    subtitle: "Virtual Tour & Lead Nurturing",
-    description: "Automate inquiries for developments anywhere in Kenya.",
+    title: "Barbershops & Salons",
+    subtitle: "Beauty & Grooming",
+    description: "Automated booking systems so you never miss a client while cutting hair.",
     size: "medium",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Car Washes & Auto",
+    subtitle: "Service Hustle",
+    description: "Manage queues and offer digital loyalty rewards to keep customers coming back.",
+    size: "small",
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Tailors & Design",
+    subtitle: "Fashion & Craft",
+    description: "Digital catalogs and measurement records kept safe in the cloud.",
+    size: "small",
+    image: "https://images.unsplash.com/photo-1552330890-7d6bd8d3c137?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Honey & Farm Produce",
+    subtitle: "Local E-commerce",
+    description: "Direct-to-consumer sales funnels for local farmers and producers.",
+    size: "large",
+    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Retail Kiosks",
+    subtitle: "Micro-SMEs",
+    description: "Smart inventory tracking via WhatsApp so you always know your stock levels.",
+    size: "medium",
+    image: "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Professional Services",
+    subtitle: "Law & Healthcare",
+    description: "High-trust lead generation for clinics and consultancies.",
+    size: "small",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80"
   }
 ];

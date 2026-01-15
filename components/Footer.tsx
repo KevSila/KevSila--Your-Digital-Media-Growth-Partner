@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Send, MapPin, Globe, CheckCircle } from 'lucide-react';
-import { PHONE_NUMBER, BRAND_NAME, FULL_BRAND_NAME, KENYAN_CITIES } from '../constants';
+import { Phone, MessageCircle, Mail, CheckCircle, MapPin } from 'lucide-react';
+import { PHONE_NUMBER, TEL_LINK, EMAIL_ADDRESS, MAILTO_LINK, BRAND_NAME, FULL_BRAND_NAME, KENYAN_CITIES, WHATSAPP_LINK } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -17,25 +17,42 @@ const Footer: React.FC = () => {
               Automating Kenya's hardest-working businesses. We build digital sales machines that dominate nationwide and globally.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all">
-                <Send size={20} />
+              <a 
+                href={WHATSAPP_LINK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all border border-slate-100"
+                title="WhatsApp Me"
+              >
+                <MessageCircle size={20} />
               </a>
-              <a href="#" className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all">
-                <Globe size={20} />
+              <a 
+                href={TEL_LINK} 
+                className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all border border-slate-100"
+                title="Call Me"
+              >
+                <Phone size={20} />
+              </a>
+              <a 
+                href={MAILTO_LINK} 
+                className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all border border-slate-100"
+                title="Email Me"
+              >
+                <Mail size={20} />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-slate-900 font-black mb-8 uppercase text-xs tracking-widest">Remote HQs</h4>
+            <h4 className="text-slate-900 font-black mb-8 uppercase text-xs tracking-widest">Contact Directly</h4>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-slate-500 group">
-                <MapPin size={18} className="text-blue-600" />
-                <span className="font-bold">Nairobi • 100% Remote</span>
+                <Phone size={18} className="text-blue-600" />
+                <a href={TEL_LINK} className="font-bold hover:text-blue-600 transition-colors">{PHONE_NUMBER}</a>
               </li>
               <li className="flex items-center gap-3 text-slate-500 group">
-                <Send size={18} className="text-blue-600" />
-                <span className="font-bold">{PHONE_NUMBER}</span>
+                <Mail size={18} className="text-blue-600" />
+                <a href={MAILTO_LINK} className="font-bold hover:text-blue-600 transition-colors">{EMAIL_ADDRESS}</a>
               </li>
               <li className="flex items-center gap-3 text-slate-900 group">
                 <CheckCircle size={18} className="text-green-500" />
@@ -67,9 +84,9 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} {FULL_BRAND_NAME}
           </p>
           <div className="flex gap-12 text-xs font-black text-slate-400 uppercase tracking-widest">
-            <a href="#" className="hover:text-blue-600 transition-colors">Web Creation</a>
-            <a href="#" className="hover:text-blue-600 transition-colors">National SEO</a>
-            <a href="#" className="hover:text-blue-600 transition-colors">Strategy</a>
+            <a href="#services" className="hover:text-blue-600 transition-colors">Web Creation</a>
+            <a href="#services" className="hover:text-blue-600 transition-colors">National SEO</a>
+            <a href="#services" className="hover:text-blue-600 transition-colors">Strategy</a>
           </div>
         </div>
       </div>

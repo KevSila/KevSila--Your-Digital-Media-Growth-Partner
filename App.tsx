@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Services from './components/Services';
+import AIIntegration from './components/AIIntegration';
 import SectorSolutions from './components/SectorSolutions';
 import AuditSection from './components/AuditSection';
 import Footer from './components/Footer';
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Hero />
         <Problem />
         <Services />
+        <AIIntegration />
         <SectorSolutions />
         <AuditSection />
       </main>
