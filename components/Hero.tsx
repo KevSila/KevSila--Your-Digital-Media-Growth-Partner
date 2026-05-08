@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
+import { WHATSAPP_LINK } from '../constants';
 
 const Hero: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const Hero: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold tracking-wider text-brand-blue uppercase mb-8"
+            className="section-label"
           >
             <Sparkles className="w-3 h-3" />
             <span>AI-First Growth Consultancy</span>
@@ -27,7 +28,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] md:leading-[1.05] tracking-tight text-white mb-8 max-w-5xl mx-auto"
+            className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-medium leading-[1] tracking-tight text-white mb-8 max-w-5xl mx-auto"
           >
             Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-white to-brand-purple">Strategic Advantage</span> Through Technology
           </motion.h1>
@@ -36,7 +37,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light"
           >
             We build the intelligent growth infrastructure for modern businesses. By integrating advanced technology into your core operations, we unlock scalable value and market dominance.
           </motion.p>
@@ -45,15 +46,20 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
           >
-            <button className="btn-primary flex items-center space-x-2 group">
+            <a 
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary flex items-center space-x-2 group"
+            >
               <span>Start Growth Audit</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="btn-secondary">
+            </a>
+            <a href="#process" className="btn-secondary">
               View Our Process
-            </button>
+            </a>
           </motion.div>
 
           <motion.div

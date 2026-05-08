@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { WHATSAPP_LINK } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -15,7 +16,7 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Solutions', href: '#services' },
     { name: 'Process', href: '#process' },
-    { name: 'Why Us', href: '#why-silatch' },
+    { name: 'Why Us', href: '#why-silatech' },
     { name: 'Engagement', href: '#pricing' },
   ];
 
@@ -47,14 +48,17 @@ const Navbar: React.FC = () => {
               {link.name}
             </motion.a>
           ))}
-          <motion.button
+          <motion.a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="btn-primary flex items-center space-x-2 text-sm px-5 py-2.5"
           >
             <span>Book Strategy Call</span>
             <ArrowRight className="w-4 h-4" />
-          </motion.button>
+          </motion.a>
         </div>
 
         {/* Mobile Toggle */}
@@ -86,10 +90,15 @@ const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
-              <button className="btn-primary w-full justify-center flex items-center space-x-2">
+              <a 
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full justify-center flex items-center space-x-2"
+              >
                 <span>Book Strategy Call</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           </motion.div>
         )}
