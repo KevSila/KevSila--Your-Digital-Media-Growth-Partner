@@ -4,40 +4,40 @@ import { Bot, Search, MessageSquare, LineChart, Globe, Settings2 } from 'lucide-
 
 const services = [
   {
-    title: 'AI-Driven Operational Systems',
-    description: 'Integrating bespoke LLMs and intelligent workflow automation to reclaim executive time and optimize resource allocation.',
-    outcome: '80% Reduction in manual overhead',
-    icon: <Bot className="w-6 h-6 text-brand-blue" />,
+    title: 'Business Systems Diagnostics',
+    description: 'Deep-dive analysis of your current operational infrastructure to identify bottlenecks and design high-leverage growth blueprints.',
+    outcome: 'Clear operational roadmap',
+    icon: <Search className="w-6 h-6 text-brand-blue" />,
   },
   {
-    title: 'Search Visibility Infrastructure',
-    description: 'Strategic SEO engineering that converts intent into revenue by establishing a defensible organic presence in your sector.',
-    outcome: 'Sustainable 300% search growth',
-    icon: <Search className="w-6 h-6 text-brand-emerald" />,
+    title: 'AI Workflow Automation',
+    description: 'Bespoke automation of repetitive administrative and sales tasks, integrating practical AI to reclaim 20+ executive hours weekly.',
+    outcome: '80% Reduction in manual work',
+    icon: <Bot className="w-6 h-6 text-brand-emerald" />,
   },
   {
-    title: 'Multi-Channel Growth Engine',
-    description: 'Scientific ad management across Google, Meta, TikTok, and LinkedIn, precision-tuned for scalable customer acquisition.',
-    outcome: 'Predictable CAC optimization',
+    title: 'Operational Intelligence Systems',
+    description: 'Custom reporting dashboards that centralize your fragmented data into a single source of truth for executive decision support.',
+    outcome: 'Real-time business visibility',
     icon: <LineChart className="w-6 h-6 text-brand-purple" />,
   },
   {
-    title: 'Strategic Tech Transformation',
-    description: 'High-level consultancy focus on the intersection of modern technology and business value mapping.',
-    outcome: 'High-leverage tech stack',
-    icon: <Globe className="w-6 h-6 text-brand-blue" />,
+    title: 'Client Operations & CRM',
+    description: 'Engineering intelligent CRM ecosystems and client onboarding workflows that maximize follow-up efficiency and long-term retention.',
+    outcome: 'Improved lead-to-client velocity',
+    icon: <MessageSquare className="w-6 h-6 text-brand-blue" />,
   },
   {
-    title: 'Automated Communication Systems',
-    description: 'Engineering the customer journey through intelligent messaging and support systems that scale without head-count.',
-    outcome: 'Convergent 4x lead velocity',
-    icon: <MessageSquare className="w-6 h-6 text-green-500" />,
-  },
-  {
-    title: 'Digital Experience Infrastructure',
-    description: 'Building high-performance conversion environments that serve as the foundation for all growth initiatives.',
-    outcome: 'Scale-ready digital presence',
+    title: 'Operational Process Optimization',
+    description: 'Restructuring core business workflows and SOPs to ensure your organization can scale without losing quality or sanity.',
+    outcome: 'Defensible, scalable operations',
     icon: <Settings2 className="w-6 h-6 text-slate-400" />,
+  },
+  {
+    title: 'Digital Transformation Advisory',
+    description: 'Strategic partnership for transitioning legacy systems into a modernized, tech-enabled enterprise ready for global markets.',
+    outcome: 'Future-proofed tech architecture',
+    icon: <Globe className="w-6 h-6 text-green-500" />,
   },
 ];
 
@@ -52,10 +52,10 @@ const Services: React.FC = () => {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold mb-6"
           >
-            Strategic Solutions, <br /><span className="text-slate-500 text-2xl md:text-4xl">Not Generic Offerings.</span>
+            Operational Infrastructure, <br /><span className="text-slate-500 text-2xl md:text-4xl">Not Just Digital Services.</span>
           </motion.h2>
-          <p className="text-slate-400 max-w-2xl">
-            We don't just provide services; we engineer business outcomes. Every solution is tailored to your specific growth stage and operational complexity.
+          <p className="text-slate-400 max-w-2xl font-light">
+            We don't sell generic marketing or web design. We engineer the internal systems that allow your business to function with intelligence, speed, and precision.
           </p>
         </div>
 

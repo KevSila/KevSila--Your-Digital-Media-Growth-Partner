@@ -17,10 +17,10 @@ const CTA: React.FC = () => {
         <div className="relative z-10">
           <Sparkles className="w-12 h-12 text-white mx-auto mb-8 text-glow animate-pulse" />
           <h2 className="text-4xl md:text-6xl font-bold mb-8 max-w-3xl mx-auto leading-tight font-display">
-            Ready to Engineer <br />Your Growth Infrastructure?
+            Evaluate Your <br />Operational Architecture.
           </h2>
           <p className="text-slate-400 text-lg md:text-xl max-w-xl mx-auto mb-12 font-light leading-relaxed">
-            Join the modern businesses leveraging strategic technology to establish market dominance. Schedule your executive strategy audit today.
+            Most businesses lose 30% of their output to fragmented systems and manual inefficiencies. Let's design the intelligence layer your organization deserves.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -31,7 +31,7 @@ const CTA: React.FC = () => {
               className="btn-primary flex items-center space-x-3 w-full sm:w-auto justify-center group"
             >
               <Calendar className="w-5 h-5" />
-              <span>Book Strategy Call</span>
+              <span>Book Systems Consultation</span>
             </a>
             <a 
               href={WHATSAPP_LINK}
@@ -40,7 +40,7 @@ const CTA: React.FC = () => {
               className="btn-secondary flex items-center space-x-3 w-full sm:w-auto justify-center"
             >
               <MessageSquare className="w-5 h-5 text-brand-blue" />
-              <span>Inquire via WhatsApp</span>
+              <span>Discuss Your Challenges</span>
             </a>
           </div>
         </div>

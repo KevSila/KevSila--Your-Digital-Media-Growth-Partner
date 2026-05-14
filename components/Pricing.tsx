@@ -5,40 +5,40 @@ import { WHATSAPP_LINK } from '../constants';
 
 const tiers = [
   {
-    name: 'Starter Growth',
-    price: 'Starting from $1,500',
-    description: 'Ideal for businesses ready to automate their first core process and establish search dominance.',
+    name: 'Systems Diagnostic',
+    price: 'Fixed-Fee Discovery',
+    description: 'A deep-dive into your current operational tech stack, workflows, and bottlenecks. We provide a full audit and systems blueprint.',
     features: [
-      'Discovery & Strategic Roadmap',
-      'Targeted Search Visibility',
-      'Core Process Automation',
-      'Monthly Strategic Reviews'
+      'Operational Tech Stack Audit',
+      'Workflow Gap Analysis',
+      'Custom Systems Architecture',
+      'Strategic Growth Roadmap'
     ],
     highlight: false,
   },
   {
-    name: 'Growth Acceleration',
-    price: 'Starting from $3,500',
-    description: 'For ambitious SMEs looking to scale aggressively with AI-driven systems and multi-channel acquisition.',
+    name: 'Operational Optimization',
+    price: 'Transformation Retainer',
+    description: 'Active implementation of your systems blueprint. We build, automate, and optimize your growth infrastructure.',
     features: [
-      'Advanced AI Content Engine',
-      'Full Sales Funnel Automation',
-      'Multi-Channel Paid Ads',
-      'Bi-Weekly Strategic Calls',
-      'Custom Analytics Dashboard'
+      'Bespoke CRM & Automation Build',
+      'AI Workflow Integration',
+      'Operational Dashboarding',
+      'Systems Training & Support',
+      'Bi-Weekly Strategic Advice'
     ],
     highlight: true,
   },
   {
     name: 'Enterprise Transformation',
-    price: 'Custom Solution',
-    description: 'A complete technological overhaul. Bespoke growth engineering for complex organizations.',
+    price: 'Custom Partnership',
+    description: 'A comprehensive technological overhaul for complex organizations ready for full digital maturing.',
     features: [
-      'Custom LLM Integrations',
-      'Global Scaling Strategy',
+      'Custom LLM/AI Agent Builds',
+      'Global Scaling Infrastructure',
       'Legacy System Modernization',
-      'Dedicated Tech Partner',
-      'Full Growth Engineering Team'
+      'Dedicated Tech Partner Support',
+      'Full Growth Engineering'
     ],
     highlight: false,
   },
@@ -59,13 +59,13 @@ const Pricing: React.FC = () => {
           >
             Engagement
           </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Partnership Models</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Consultation Models</h2>
           <p className="text-slate-400 max-w-2xl mx-auto mb-6 font-light leading-relaxed">
-            We operate as a strategic extension of your leadership team. Our engagements are designed for high-impact results and long-term infrastructure value.
+            Every organization has unique operational DNA. Solutions are scoped based on operational complexity, business goals, and integration requirements.
           </p>
           <div className="flex items-center justify-center space-x-2 text-[10px] font-mono text-brand-blue uppercase tracking-[0.2em] opacity-70">
             <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
-            <span>Currently accepting 2 new partners for Q3</span>
+            <span>Currently evaluating new partners for late Q3</span>
           </div>
         </div>
 

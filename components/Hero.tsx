@@ -30,16 +30,16 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-medium leading-[1] tracking-tight text-white mb-8 max-w-5xl mx-auto"
           >
-            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-white to-brand-purple">Strategic Advantage</span> Through Technology
+            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-white to-brand-purple">Operational Intelligence</span> for Modern Business
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light"
+            className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
           >
-            We build the intelligent growth infrastructure for modern businesses. By integrating advanced technology into your core operations, we unlock scalable value and market dominance.
+            We help SMEs, professional firms, and growth businesses simplify operations and make better decisions. Through practical AI-powered systems, workflow automation, and intelligent reporting, we turn operational complexity into strategic advantage.
           </motion.p>
 
           <motion.div
@@ -54,11 +54,11 @@ const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="btn-primary flex items-center space-x-2 group"
             >
-              <span>Start Growth Audit</span>
+              <span>Book Systems Consultation</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <a href="#process" className="btn-secondary">
-              View Our Process
+              Explore Our Methodology
             </a>
           </motion.div>
 
@@ -70,15 +70,15 @@ const Hero: React.FC = () => {
           >
             <div className="flex items-center space-x-2 grayscale">
               <ShieldCheck className="w-5 h-5" />
-              <span className="text-sm font-medium">Enterprise Security</span>
+              <span className="text-sm font-medium">Process Optimization</span>
             </div>
             <div className="flex items-center space-x-2 grayscale">
               <Zap className="w-5 h-5" />
-              <span className="text-sm font-medium">99.9% Automation Uptime</span>
+              <span className="text-sm font-medium">Operational Intelligence</span>
             </div>
             <div className="flex items-center space-x-2 grayscale">
               <Sparkles className="w-5 h-5" />
-              <span className="text-sm font-medium">AI-Forward Thinking</span>
+              <span className="text-sm font-medium">AI Decision Support</span>
             </div>
           </motion.div>
         </div>

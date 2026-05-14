@@ -5,27 +5,27 @@ const steps = [
   {
     number: '01',
     title: 'Discover',
-    description: 'Deep-dive into your current systems, growth bottlenecks, and business objectives.'
+    description: 'Deep-dive into organizational function to identify operational inefficiencies and growth bottlenecks.'
   },
   {
     number: '02',
     title: 'Diagnose',
-    description: 'Technical audit of your digital infrastructure, search visibility, and conversion data.'
+    description: 'Technical audit of current workflows, reporting structures, and digital infrastructure.'
   },
   {
     number: '03',
     title: 'Design',
-    description: 'Engineering a custom blueprint for your AI growth stack and automation engine.'
+    description: 'Engineering a custom blueprint for practical systems, automation, and decision support layers.'
   },
   {
     number: '04',
     title: 'Deploy',
-    description: 'Rapid implementation of prioritized systems, ads, and SEO infrastructure.'
+    description: 'Seamless integration of tech-enabled processes and visibility systems into core operations.'
   },
   {
     number: '05',
     title: 'Optimize',
-    description: 'Continuous refinement based on real-world data and technological advancements.'
+    description: 'Continuous refinement of workflows and analytics to ensure measurable business impact.'
   },
 ];
 

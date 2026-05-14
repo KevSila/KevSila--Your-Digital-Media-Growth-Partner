@@ -22,10 +22,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Solutions</h4>
             <ul className="space-y-4 text-sm text-slate-500">
-              <li><a href="#services" className="hover:text-white transition-colors">Business Automation</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Multi-Channel Ads</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Strategic SEO</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Tech Transformation</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Systems Diagnostics</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">AI Automation</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Operational BI</a></li>
+              <li><a href="#services" className="hover:text-white transition-colors">Strategic Advisory</a></li>
             </ul>
           </div>
 

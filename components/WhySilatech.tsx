@@ -5,23 +5,23 @@ import { Zap, Cpu, Target, Network } from 'lucide-react';
 const reasons = [
   {
     icon: <Cpu className="w-5 h-5" />,
-    title: 'Technology + Strategy',
-    description: 'We don\'t just deploy tools; we design growth engines that align with your business logic.'
+    title: 'Operational Deep-Dive',
+    description: 'We enjoy understanding how your organization functions at a root level before designing any technical solution.'
   },
   {
     icon: <Zap className="w-5 h-5" />,
-    title: 'AI-Enabled Systems',
-    description: 'Leverage the latest in large language models and automation to gain a compounding competitive edge.'
+    title: 'Practical Automation',
+    description: 'Focusing on high-impact systems that simplify workflows and reclaim time without unnecessary complexity.'
   },
   {
     icon: <Target className="w-5 h-5" />,
-    title: 'Business-First Thinking',
-    description: 'We measure success in ROI and revenue, not vanity metrics like impressions or clicks.'
+    title: 'Strategic Implementation',
+    description: 'Every system is anchored in business objectives, ensuring technology creates measurable, defensible value.'
   },
   {
     icon: <Network className="w-5 h-5" />,
-    title: 'Growth-Oriented',
-    description: 'Our solutions are built to scale with you, preventing the need for costly infrastructure re-builds.'
+    title: 'Scalable Growth',
+    description: 'Building sustainable growth infrastructure for SMEs and firms ready to modernize their operations.'
   }
 ];
 
