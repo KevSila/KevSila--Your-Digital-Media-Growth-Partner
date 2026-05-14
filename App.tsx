@@ -1,32 +1,27 @@
 
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Industries from './components/Industries';
-import Process from './components/Process';
-import WhySilatech from './components/WhySilatech';
-import Pricing from './components/Pricing';
-import CTA from './components/CTA';
+import HomePage from './pages/HomePage';
+import BusinessSystemsPage from './pages/BusinessSystemsPage';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-soft-black text-slate-200">
-      <Navbar />
-      <main className="flex-grow">
-        <Hero />
-        <Services />
-        <Industries />
-        <Process />
-        <WhySilatech />
-        <Pricing />
-        <CTA />
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col bg-soft-black text-slate-200">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/business-systems-automation" element={<BusinessSystemsPage />} />
+          </Routes>
+        </main>
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    </Router>
   );
 };
 

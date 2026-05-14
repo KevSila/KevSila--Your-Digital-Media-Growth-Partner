@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
 import { WHATSAPP_LINK } from '../constants';
 
@@ -57,9 +58,9 @@ const Hero: React.FC = () => {
               <span>Book Systems Consultation</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#process" className="btn-secondary">
-              Explore Our Methodology
-            </a>
+            <Link to="/business-systems-automation" className="btn-secondary">
+              View AI Systems
+            </Link>
           </motion.div>
 
           <motion.div

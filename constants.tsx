@@ -14,8 +14,9 @@ export const SOCIAL_LINKS = {
 };
 
 export const NAV_LINKS = [
-  { name: 'Solutions', href: '#services' },
-  { name: 'Methodology', href: '#process' },
-  { name: 'Why Us', href: '#why-silatech' },
-  { name: 'Engagement', href: '#pricing' },
+  { name: 'Solutions', href: '/#services' },
+  { name: 'Systems', href: '/business-systems-automation' },
+  { name: 'Methodology', href: '/#process' },
+  { name: 'Why Us', href: '/#why-silatech' },
+  { name: 'Engagement', href: '/#pricing' },
 ];

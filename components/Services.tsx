@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Bot, Search, MessageSquare, LineChart, Globe, Settings2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Bot, Search, MessageSquare, LineChart, Globe, Settings2, ArrowRight } from 'lucide-react';
 
 const services = [
   {
@@ -59,7 +60,7 @@ const Services: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -83,6 +84,18 @@ const Services: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Link to="/business-systems-automation" className="btn-primary inline-flex items-center space-x-2">
+            <span>Explore Full Systems & Automation Capability</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
