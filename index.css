@@ -15,9 +15,10 @@
   --shadow-card: 0 24px 70px -36px rgba(7, 20, 38, .34);
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 96px; }
-body { margin: 0; background: #071426; color: #dfe8f4; font-family: "Manrope", sans-serif; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; min-width: 320px; overflow-x: clip; background: #071426; color: #dfe8f4; font-family: "Manrope", sans-serif; -webkit-font-smoothing: antialiased; }
 * { box-sizing: border-box; }
+img, svg, canvas, video { max-width: 100%; }
 ::selection { background: rgba(56, 214, 165, .28); color: white; }
 a, button { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 3px solid #38d6a5; outline-offset: 4px; }
@@ -27,15 +28,15 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 @layer components {
-  .shell { @apply max-w-7xl mx-auto px-5 sm:px-7 lg:px-8; }
-  .eyebrow { @apply inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-cobalt; }
-  .eyebrow-light { @apply inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-mint; }
+  .shell { @apply max-w-7xl mx-auto min-w-0 px-5 sm:px-7 lg:px-8; }
+  .eyebrow { @apply inline-flex max-w-full flex-wrap items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-cobalt; }
+  .eyebrow-light { @apply inline-flex max-w-full flex-wrap items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-mint; }
   .display-title { @apply font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.04] tracking-[-0.045em]; }
   .section-title { @apply font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-[-0.035em]; }
   .body-lg { @apply text-base sm:text-lg leading-8; }
-  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-cobalt px-6 py-3.5 text-sm font-bold text-white shadow-[0_16px_38px_-18px_rgba(40,100,255,.9)] transition hover:bg-[#1f55e4] hover:-translate-y-0.5 active:translate-y-0; }
-  .btn-dark { @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-bold text-white transition hover:bg-ink-soft hover:-translate-y-0.5; }
-  .btn-light { @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3.5 text-sm font-bold text-white backdrop-blur transition hover:bg-white/14 hover:-translate-y-0.5; }
+  .btn-primary { @apply inline-flex min-h-11 max-w-full items-center justify-center gap-2 rounded-full bg-cobalt px-6 py-3.5 text-center text-sm font-bold text-white shadow-[0_16px_38px_-18px_rgba(40,100,255,.9)] transition hover:bg-[#1f55e4] hover:-translate-y-0.5 active:translate-y-0; }
+  .btn-dark { @apply inline-flex min-h-11 max-w-full items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-center text-sm font-bold text-white transition hover:bg-ink-soft hover:-translate-y-0.5; }
+  .btn-light { @apply inline-flex min-h-11 max-w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/8 px-6 py-3.5 text-center text-sm font-bold text-white backdrop-blur transition hover:bg-white/14 hover:-translate-y-0.5; }
   .card-light { @apply rounded-[1.75rem] border border-[#dce5f1] bg-white shadow-card; }
   .card-dark { @apply rounded-[1.75rem] border border-white/10 bg-white/[0.055] backdrop-blur; }
 }
@@ -48,6 +49,20 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .metric-bar { background: linear-gradient(90deg, #2864ff, #38d6a5); }
 .logo-mark { background: linear-gradient(145deg, #2864ff 5%, #38d6a5 100%); box-shadow: 0 12px 30px -12px rgba(40,100,255,.8); }
 .soft-noise { background-image: radial-gradient(rgba(7,20,38,.08) .7px, transparent .7px); background-size: 8px 8px; }
+.floating-contact { right: max(1rem, env(safe-area-inset-right)); bottom: max(1rem, env(safe-area-inset-bottom)); }
+
+@media (max-width: 639px) {
+  html { scroll-padding-top: 80px; }
+  .display-title { font-size: clamp(2.05rem, 9vw, 2.9rem); line-height: 1.08; }
+  .section-title { font-size: clamp(1.8rem, 7.4vw, 2.4rem); line-height: 1.14; }
+  .body-lg { line-height: 1.75; }
+  .eyebrow, .eyebrow-light { letter-spacing: .12em; }
+  .btn-primary, .btn-dark, .btn-light { min-height: 48px; }
+}
+
+@media (min-width: 640px) and (max-width: 1279px) {
+  .display-title { font-size: clamp(3rem, 6.2vw, 3.85rem); }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
