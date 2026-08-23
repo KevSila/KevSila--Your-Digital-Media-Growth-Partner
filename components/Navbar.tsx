@@ -1,153 +1,59 @@
-
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { WHATSAPP_LINK, NAV_LINKS } from '../constants';
+import { NAV_LINKS, WHATSAPP_LINK } from '../constants';
 
-const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const Brand = () => (
+  <span className="flex items-center gap-3">
+    <span className="logo-mark grid h-9 w-9 place-items-center rounded-xl" aria-hidden="true">
+      <span className="h-3.5 w-3.5 rotate-45 rounded-[3px] border-2 border-white" />
+    </span>
+    <span className="font-display text-[15px] font-bold leading-tight tracking-[-.02em] text-white sm:text-base">
+      Silatech <span className="hidden text-slate-copy sm:inline">Growth Partners</span>
+    </span>
+  </span>
+);
+
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
+  useEffect(() => setOpen(false), [location]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4 bg-soft-black/80 backdrop-blur-lg border-b border-white/5' : 'py-6 bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link to="/">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-2"
-          >
-            <div className="w-8 h-8 bg-gradient-to-br from-brand-blue to-brand-purple rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 bg-soft-black rounded-sm" />
-            </div>
-            <span className="text-xl font-display font-bold tracking-tight text-white uppercase">SILATECH</span>
-          </motion.div>
-        </Link>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
-          {NAV_LINKS.map((link, i) => {
-            const isExternal = link.href.startsWith('http');
-            const isHash = link.href.includes('#');
-            
-            if (isHash && !isExternal) {
-              return (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
-                  className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </motion.a>
-              );
-            }
-
-            return (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link
-                  to={link.href}
-                  className={`text-sm font-medium transition-colors ${location.pathname === link.href ? 'text-brand-blue' : 'text-slate-400 hover:text-white'}`}
-                >
-                  {link.name}
-                </Link>
-              </motion.div>
-            );
-          })}
-          <motion.a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="btn-primary flex items-center space-x-2 text-sm px-5 py-2.5"
-          >
-            <span>Book Strategy Call</span>
-            <ArrowRight className="w-4 h-4" />
-          </motion.a>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled || open ? 'nav-blur' : 'bg-transparent'}`}>
+      <nav className="shell flex h-20 items-center justify-between" aria-label="Main navigation">
+        <Link to="/" aria-label="Silatech Growth Partners home"><Brand /></Link>
+        <div className="hidden items-center gap-7 lg:flex">
+          {NAV_LINKS.map((item) => (
+            <a key={item.name} href={item.href} className="text-sm font-semibold text-slate-copy transition hover:text-white">{item.name}</a>
+          ))}
+          <Link to="/business-systems-automation" className="text-sm font-semibold text-slate-copy transition hover:text-white">Systems</Link>
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-primary px-5 py-3">
+            Book a diagnostic <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
-
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
+        <button className="grid h-11 w-11 place-items-center rounded-full border border-white/12 text-white lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close menu' : 'Open menu'}>
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-soft-black border-b border-white/10 overflow-hidden"
-          >
-            <div className="px-6 py-8 flex flex-col space-y-6">
-              {NAV_LINKS.map((link) => {
-                const isExternal = link.href.startsWith('http');
-                const isHash = link.href.includes('#');
-
-                if (isHash && !isExternal) {
-                  return (
-                    <a 
-                      key={link.name} 
-                      href={link.href} 
-                      className="text-lg font-medium text-slate-300 hover:text-white"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {link.name}
-                    </a>
-                  );
-                }
-
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className={`text-lg font-medium transition-colors ${location.pathname === link.href ? 'text-brand-blue' : 'text-slate-300 hover:text-white'}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-              <a 
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary w-full justify-center flex items-center space-x-2"
-              >
-                <span>Book Strategy Call</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
+      </nav>
+      {open && (
+        <div id="mobile-menu" className="shell border-t border-white/8 py-6 lg:hidden">
+          <div className="flex flex-col gap-1">
+            {NAV_LINKS.map((item) => <a key={item.name} href={item.href} className="rounded-xl px-3 py-3 text-base font-semibold text-slate-200 hover:bg-white/5">{item.name}</a>)}
+            <Link to="/business-systems-automation" className="rounded-xl px-3 py-3 text-base font-semibold text-slate-200 hover:bg-white/5">Business systems</Link>
+            <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-primary mt-4">Book a diagnostic <ArrowUpRight className="h-4 w-4" /></a>
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 

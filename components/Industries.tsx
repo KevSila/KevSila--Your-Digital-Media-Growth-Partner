@@ -1,58 +1,22 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Briefcase, Building2, Truck, Stethoscope, Scale, GraduationCap } from 'lucide-react';
+import { BriefcaseBusiness, Building2, HeartPulse, PackageCheck, Sprout } from 'lucide-react';
 
 const sectors = [
-  { name: 'Professional Services', icon: <Briefcase className="w-5 h-5" />, desc: 'Law firms, accounting practices, and consulting agencies.' },
-  { name: 'Health & Wellness', icon: <Stethoscope className="w-5 h-5" />, desc: 'Medical clinics, gyms, and specialty wellness centers.' },
-  { name: 'Logistics & Distribution', icon: <Truck className="w-5 h-5" />, desc: 'Supply chain management and local distribution networks.' },
-  { name: 'Real Estate & Property', icon: <Building2 className="w-5 h-5" />, desc: 'Property management firms and real estate developers.' },
-  { name: 'Legal & Compliance', icon: <Scale className="w-5 h-5" />, desc: 'Case management and automated documentation systems.' },
-  { name: 'NGOs & Education', icon: <GraduationCap className="w-5 h-5" />, desc: 'Stakeholder coordination and reporting for impact.' },
+  { icon: BriefcaseBusiness, title: 'Professional services', copy: 'Consultants, lawyers, accountants, coaches, agencies, and real estate teams.' },
+  { icon: HeartPulse, title: 'Clinics & service businesses', copy: 'Clinics, wellness providers, gyms, salons, and appointment-led businesses.' },
+  { icon: PackageCheck, title: 'Operations-heavy SMEs', copy: 'Furniture sellers, retailers, pharmacies, hardware stores, and distributors.' },
+  { icon: Building2, title: 'NGOs & community organizations', copy: 'Field teams, youth networks, county chapters, and donor-supported programs.' },
+  { icon: Sprout, title: 'Agribusiness & product brands', copy: 'Food, honey, and emerging product businesses that need better records and trust.' },
 ];
 
-const Industries: React.FC = () => {
-  return (
-    <section className="py-24 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="section-label"
-          >
-            Industries Served
-          </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Expertise Across Sectors</h2>
-          <p className="text-slate-400 max-w-2xl font-light">
-            We solve operational challenges for organizations that are ready to replace manual friction with intelligent systems.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sectors.map((sector, i) => (
-            <motion.div
-              key={sector.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="flex items-start space-x-6 p-6 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5 group"
-            >
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 group-hover:text-brand-blue transition-colors">
-                {sector.icon}
-              </div>
-              <div>
-                <h3 className="text-lg font-bold mb-2 text-white">{sector.name}</h3>
-                <p className="text-sm text-slate-500 font-light">{sector.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+const Industries = () => (
+  <section id="industries" className="bg-white py-24 text-ink sm:py-32">
+    <div className="shell">
+      <div className="mx-auto max-w-3xl text-center"><span className="eyebrow">Who we help</span><h2 className="section-title mt-5 !text-ink">Built for teams where missed follow-up or poor records cost real money.</h2><p className="body-lg mt-6 text-slate-600">Our strongest fit is a growing organization with useful tools already in place—but too much work still happening manually between them.</p></div>
+      <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        {sectors.map(({ icon: Icon, title, copy }) => <article key={title} className="rounded-[1.5rem] border border-slate-200 bg-cloud p-6"><Icon className="h-6 w-6 text-cobalt" /><h3 className="mt-8 text-base font-bold !text-ink">{title}</h3><p className="mt-3 text-sm leading-6 text-slate-600">{copy}</p></article>)}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Industries;
