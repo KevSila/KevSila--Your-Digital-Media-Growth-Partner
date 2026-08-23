@@ -26,12 +26,18 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
   useEffect(() => setOpen(false), [location]);
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = previousOverflow; };
+  }, [open]);
 
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all ${scrolled || open ? 'nav-blur' : 'bg-transparent'}`}>
       <nav className="shell flex h-20 items-center justify-between" aria-label="Main navigation">
         <Link to="/" aria-label="Silatech Growth Partners home"><Brand /></Link>
-        <div className="hidden items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-5 xl:flex 2xl:gap-7">
           {NAV_LINKS.map((item) => (
             <a key={item.name} href={item.href} className="text-sm font-semibold text-slate-copy transition hover:text-white">{item.name}</a>
           ))}
@@ -40,14 +46,14 @@ const Navbar = () => {
             Book a diagnostic <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
-        <button className="grid h-11 w-11 place-items-center rounded-full border border-white/12 text-white lg:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close menu' : 'Open menu'}>
+        <button className="grid h-11 w-11 place-items-center rounded-full border border-white/12 text-white xl:hidden" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close menu' : 'Open menu'}>
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
       {open && (
-        <div id="mobile-menu" className="shell border-t border-white/8 py-6 lg:hidden">
+        <div id="mobile-menu" className="shell max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain border-t border-white/8 py-6 xl:hidden">
           <div className="flex flex-col gap-1">
-            {NAV_LINKS.map((item) => <a key={item.name} href={item.href} className="rounded-xl px-3 py-3 text-base font-semibold text-slate-200 hover:bg-white/5">{item.name}</a>)}
+            {NAV_LINKS.map((item) => <a key={item.name} href={item.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-3 text-base font-semibold text-slate-200 hover:bg-white/5">{item.name}</a>)}
             <Link to="/business-systems-automation" className="rounded-xl px-3 py-3 text-base font-semibold text-slate-200 hover:bg-white/5">Business systems</Link>
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-primary mt-4">Book a diagnostic <ArrowUpRight className="h-4 w-4" /></a>
           </div>
