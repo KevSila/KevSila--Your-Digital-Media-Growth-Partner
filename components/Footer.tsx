@@ -1,67 +1,15 @@
-import React from 'react';
-import { Linkedin, Github, Link as LinkIcon, ExternalLink } from 'lucide-react';
-import { SOCIAL_LINKS } from '../constants';
+import { ExternalLink, Github, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { PHONE_NUMBER, SOCIAL_LINKS, TEL_LINK } from '../constants';
 
-const Footer: React.FC = () => {
-  return (
-    <footer className="py-20 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-br from-brand-blue to-brand-purple rounded-lg flex items-center justify-center">
-                <div className="w-4 h-4 bg-soft-black rounded-sm" />
-              </div>
-              <span className="text-xl font-display font-bold tracking-tight text-white uppercase">SILATECH</span>
-            </div>
-            <p className="text-slate-500 max-w-sm leading-relaxed text-sm font-light">
-              Building intelligent systems and strategic growth infrastructure for modern businesses.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Solutions</h4>
-            <ul className="space-y-4 text-sm text-slate-500">
-              <li><a href="#services" className="hover:text-white transition-colors">Systems Diagnostics</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">AI Automation</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Operational BI</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Strategic Advisory</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-[10px]">Company</h4>
-            <ul className="space-y-4 text-sm text-slate-500">
-              <li><a href="#process" className="hover:text-white transition-colors">Process</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Consultation</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Transparency</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0">
-          <p className="text-slate-500 text-xs">
-            © {new Date().getFullYear()} Silatech Growth Partners. All rights reserved.
-          </p>
-          <div className="flex items-center space-x-8 text-slate-500">
-            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center space-x-2 text-xs">
-              <Linkedin className="w-4 h-4" />
-              <span>LinkedIn</span>
-            </a>
-            <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center space-x-2 text-xs">
-              <Github className="w-4 h-4" />
-              <span>GitHub</span>
-            </a>
-            <a href={SOCIAL_LINKS.linktree} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center space-x-2 text-xs">
-              <LinkIcon className="w-4 h-4" />
-              <span>Linktree</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
+const Footer = () => (
+  <footer className="border-t border-white/8 bg-ink py-14">
+    <div className="shell"><div className="grid gap-12 border-b border-white/8 pb-12 md:grid-cols-[1.3fr_.7fr_.7fr]">
+      <div><div className="flex items-center gap-3"><span className="logo-mark grid h-9 w-9 place-items-center rounded-xl"><span className="h-3.5 w-3.5 rotate-45 rounded-[3px] border-2 border-white" /></span><span className="font-display text-lg font-bold text-white">Silatech Growth Partners</span></div><p className="mt-5 max-w-md text-sm leading-7 text-slate-copy">Practical business systems, workflow automation, dashboards, and AI-enabled operations for growing organizations.</p><p className="mt-4 text-sm text-slate-copy">Nairobi, Kenya · Remote delivery available</p></div>
+      <div><h3 className="text-xs font-bold uppercase tracking-[.16em] text-white">Explore</h3><div className="mt-5 flex flex-col gap-3 text-sm text-slate-copy"><a href="/#solutions" className="hover:text-white">Solutions</a><a href="/#case-study" className="hover:text-white">Case study</a><Link to="/business-systems-automation" className="hover:text-white">Business systems</Link><a href="/#about" className="hover:text-white">About</a></div></div>
+      <div><h3 className="text-xs font-bold uppercase tracking-[.16em] text-white">Connect</h3><div className="mt-5 flex flex-col gap-3 text-sm text-slate-copy"><a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><Linkedin className="h-4 w-4" /> LinkedIn</a><a href={SOCIAL_LINKS.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><Github className="h-4 w-4" /> GitHub</a><a href={SOCIAL_LINKS.portfolio} target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-white"><ExternalLink className="h-4 w-4" /> Portfolio</a><a href={TEL_LINK} className="hover:text-white">{PHONE_NUMBER}</a></div></div>
+    </div><div className="flex flex-col gap-3 pt-7 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between"><p>© {new Date().getFullYear()} Silatech Growth Partners. All rights reserved.</p><p>Business systems designed for practical adoption.</p></div></div>
+  </footer>
+);
 
 export default Footer;

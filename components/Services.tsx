@@ -1,104 +1,36 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import { ArrowUpRight, BarChart3, Bot, ClipboardList, Globe2, MessageCircleMore, Route } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Bot, Search, MessageSquare, LineChart, Globe, Settings2, ArrowRight } from 'lucide-react';
 
 const services = [
-  {
-    title: 'Business Systems Diagnostics',
-    description: 'Deep-dive analysis of your current operational infrastructure to identify bottlenecks and design high-leverage growth blueprints.',
-    outcome: 'Clear operational roadmap',
-    icon: <Search className="w-6 h-6 text-brand-blue" />,
-  },
-  {
-    title: 'AI Workflow Automation',
-    description: 'Bespoke automation of repetitive administrative and sales tasks, integrating practical AI to reclaim 20+ executive hours weekly.',
-    outcome: '80% Reduction in manual work',
-    icon: <Bot className="w-6 h-6 text-brand-emerald" />,
-  },
-  {
-    title: 'Operational Intelligence Systems',
-    description: 'Custom reporting dashboards that centralize your fragmented data into a single source of truth for executive decision support.',
-    outcome: 'Real-time business visibility',
-    icon: <LineChart className="w-6 h-6 text-brand-purple" />,
-  },
-  {
-    title: 'Client Operations & CRM',
-    description: 'Engineering intelligent CRM ecosystems and client onboarding workflows that maximize follow-up efficiency and long-term retention.',
-    outcome: 'Improved lead-to-client velocity',
-    icon: <MessageSquare className="w-6 h-6 text-brand-blue" />,
-  },
-  {
-    title: 'Operational Process Optimization',
-    description: 'Restructuring core business workflows and SOPs to ensure your organization can scale without losing quality or sanity.',
-    outcome: 'Defensible, scalable operations',
-    icon: <Settings2 className="w-6 h-6 text-slate-400" />,
-  },
-  {
-    title: 'Digital Transformation Advisory',
-    description: 'Strategic partnership for transitioning legacy systems into a modernized, tech-enabled enterprise ready for global markets.',
-    outcome: 'Future-proofed tech architecture',
-    icon: <Globe className="w-6 h-6 text-green-500" />,
-  },
+  { icon: MessageCircleMore, title: 'WhatsApp lead capture & CRM', problem: 'Inquiries disappear inside busy chats.', result: 'Capture each lead, track its status, and make the next follow-up visible.' },
+  { icon: Bot, title: 'AI sales & admin workflows', problem: 'Your team repeats the same replies and admin tasks.', result: 'Draft responses, classify inquiries, summarize records, and support faster action.' },
+  { icon: BarChart3, title: 'Dashboards & automated reporting', problem: 'Decisions wait for scattered or late reports.', result: 'Turn organized data into clear sales, activity, stock, or impact visibility.' },
+  { icon: ClipboardList, title: 'Client intake & appointment systems', problem: 'Bookings, forms, and next steps are inconsistent.', result: 'Create a dependable journey from first inquiry to confirmation and follow-up.' },
+  { icon: Globe2, title: 'Websites connected to growth', problem: 'A beautiful website does not capture or organize demand.', result: 'Connect landing pages to WhatsApp, forms, analytics, and a lead tracker.' },
+  { icon: Route, title: 'Systems diagnostics & workflow design', problem: 'Buying more software will not fix an unclear process.', result: 'Map the bottleneck, choose the right tools, and build a practical roadmap.' },
 ];
 
-const Services: React.FC = () => {
-  return (
-    <section id="services" className="py-24 bg-soft-black">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mb-6"
-          >
-            Operational Infrastructure, <br /><span className="text-slate-500 text-2xl md:text-4xl">Not Just Digital Services.</span>
-          </motion.h2>
-          <p className="text-slate-400 max-w-2xl font-light">
-            We don't sell generic marketing or web design. We engineer the internal systems that allow your business to function with intelligence, speed, and precision.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-card p-8 group hover:border-white/20 transition-all cursor-default"
-            >
-              <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                {service.description}
-              </p>
-              <div className="pt-6 border-t border-white/5">
-                <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-2 block font-sans">Projected Outcome</span>
-                <span className="text-white font-medium">{service.outcome}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <Link to="/business-systems-automation" className="btn-primary inline-flex items-center space-x-2">
-            <span>Explore Full Systems & Automation Capability</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
+const Services = () => (
+  <section id="solutions" className="soft-noise bg-cloud py-24 text-ink sm:py-32">
+    <div className="shell">
+      <div className="grid gap-7 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+        <div><span className="eyebrow">What we build</span><h2 className="section-title mt-5 !text-ink">Practical systems that improve how your business works.</h2></div>
+        <p className="body-lg max-w-2xl text-slate-600 lg:justify-self-end">We start with the business problem—not the software. Every solution is designed around the people, tools, and routines you already have.</p>
       </div>
-    </section>
-  );
-};
+      <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service, index) => {
+          const Icon = service.icon;
+          return <article key={service.title} className="card-light group p-7 transition duration-300 hover:-translate-y-1 hover:border-[#b9cdf3]">
+            <div className="mb-8 flex items-start justify-between"><span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#eaf0ff] text-cobalt"><Icon className="h-5 w-5" /></span><span className="font-display text-sm font-bold text-slate-300">0{index + 1}</span></div>
+            <h3 className="text-xl font-bold !text-ink">{service.title}</h3>
+            <p className="mt-4 text-sm leading-6 text-slate-500">{service.problem}</p>
+            <div className="mt-6 border-t border-slate-100 pt-5"><p className="text-sm font-semibold leading-6 text-slate-700">{service.result}</p></div>
+          </article>;
+        })}
+      </div>
+      <div className="mt-10 flex justify-center"><Link to="/business-systems-automation" className="btn-dark">Explore all systems <ArrowUpRight className="h-4 w-4" /></Link></div>
+    </div>
+  </section>
+);
 
 export default Services;

@@ -1,91 +1,53 @@
-import React from 'react';
 import { motion } from 'motion/react';
+import { ArrowRight, Check, MessageSquareText, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
 import { WHATSAPP_LINK } from '../constants';
 
-const Hero: React.FC = () => {
-  return (
-    <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-purple/10 rounded-full blur-[120px] animate-pulse delay-700" />
-        <div className="absolute inset-0 grid-bg opacity-20" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="section-label"
-          >
-            <Sparkles className="w-3 h-3" />
-            <span>AI-First Growth Consultancy</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-[5.5rem] font-display font-medium leading-[1] tracking-tight text-white mb-8 max-w-5xl mx-auto"
-          >
-            Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue via-white to-brand-purple">Operational Intelligence</span> for Modern Business
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
-          >
-            We help SMEs, professional firms, and growth businesses simplify operations and make better decisions. Through practical AI-powered systems, workflow automation, and intelligent reporting, we turn operational complexity into strategic advantage.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
-          >
-            <a 
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary flex items-center space-x-2 group"
-            >
-              <span>Book Systems Consultation</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <Link to="/business-systems-automation" className="btn-secondary">
-              View AI Systems
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-50"
-          >
-            <div className="flex items-center space-x-2 grayscale">
-              <ShieldCheck className="w-5 h-5" />
-              <span className="text-sm font-medium">Process Optimization</span>
-            </div>
-            <div className="flex items-center space-x-2 grayscale">
-              <Zap className="w-5 h-5" />
-              <span className="text-sm font-medium">Operational Intelligence</span>
-            </div>
-            <div className="flex items-center space-x-2 grayscale">
-              <Sparkles className="w-5 h-5" />
-              <span className="text-sm font-medium">AI Decision Support</span>
-            </div>
-          </motion.div>
+const Hero = () => (
+  <section className="relative overflow-hidden bg-ink pb-20 pt-32 sm:pb-28 sm:pt-40">
+    <div className="hero-grid absolute inset-0" />
+    <div className="hero-orb absolute -left-36 -top-36 h-[650px] w-[650px]" />
+    <div className="mint-orb absolute -right-40 bottom-0 h-[520px] w-[520px]" />
+    <div className="shell relative grid items-center gap-14 lg:grid-cols-[1.08fr_.92fr]">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .65 }}>
+        <span className="eyebrow-light mb-6"><Sparkles className="h-4 w-4" /> AI-powered business systems for growing teams</span>
+        <h1 className="display-title max-w-4xl text-white">Stop losing leads. Simplify operations. <span className="text-gradient">Grow with better systems.</span></h1>
+        <p className="body-lg mt-7 max-w-2xl text-slate-copy">Silatech helps SMEs, professional firms, and growing organizations organize customer inquiries, automate follow-ups, streamline reporting, and make better decisions using practical business systems.</p>
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-primary">Book a systems diagnostic <ArrowRight className="h-4 w-4" /></a>
+          <Link to="/business-systems-automation" className="btn-light">Explore our solutions</Link>
         </div>
-      </div>
-    </section>
-  );
-};
+        <div className="mt-9 flex flex-wrap gap-x-5 gap-y-3 text-xs font-semibold text-slate-300 sm:text-sm">
+          {['Built around your workflow', 'Low-cost tools first', 'Training and handover included'].map(item => <span className="flex items-center gap-2" key={item}><Check className="h-4 w-4 text-mint" />{item}</span>)}
+        </div>
+      </motion.div>
+
+      <motion.div initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .15, duration: .7 }} className="relative mx-auto w-full max-w-xl">
+        <div className="absolute -inset-5 rounded-[2.5rem] bg-cobalt/15 blur-2xl" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-[#0d203b] p-4 shadow-2xl sm:p-6">
+          <div className="mb-5 flex items-center justify-between border-b border-white/8 pb-4">
+            <div><p className="text-xs font-bold text-white">Lead follow-up workspace</p><p className="mt-1 text-[11px] text-slate-copy">Today’s activity</p></div>
+            <span className="rounded-full bg-mint/12 px-3 py-1 text-[10px] font-bold text-mint">Live workflow</span>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-[.92fr_1.08fr]">
+            <div className="rounded-2xl bg-white/[.055] p-4">
+              <div className="mb-4 flex items-center gap-2"><span className="grid h-8 w-8 place-items-center rounded-full bg-[#25D366]/15"><MessageSquareText className="h-4 w-4 text-[#54e68b]" /></span><div><p className="text-[11px] font-bold text-white">New WhatsApp inquiry</p><p className="text-[10px] text-slate-copy">2 minutes ago</p></div></div>
+              <div className="rounded-xl bg-white/[.06] p-3 text-[11px] leading-5 text-slate-300">“Hi, I need a quote and want to know when you can deliver.”</div>
+              <div className="mt-4 space-y-2 text-[10px]"><p className="flex justify-between text-slate-copy"><span>Lead category</span><b className="text-white">Qualified inquiry</b></p><p className="flex justify-between text-slate-copy"><span>Next action</span><b className="text-mint">Follow up today</b></p></div>
+            </div>
+            <div className="rounded-2xl bg-white p-4 text-ink">
+              <div className="flex items-end justify-between"><div><p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Owner view</p><p className="font-display text-lg font-bold">Opportunity pipeline</p></div><span className="text-xs font-bold text-cobalt">This week</span></div>
+              <div className="mt-6 flex h-28 items-end gap-2" aria-label="Example weekly inquiry chart">
+                {[38,58,45,78,63,92,72].map((height, index) => <div key={index} className="flex-1 rounded-t-md bg-[#dbe6ff]" style={{height: `${height}%`}}><div className="metric-bar h-full rounded-t-md opacity-80" /></div>)}
+              </div>
+              <div className="mt-4 grid grid-cols-3 gap-2 border-t border-slate-100 pt-4"><div><p className="text-[9px] text-slate-500">New</p><p className="font-display text-lg font-bold">12</p></div><div><p className="text-[9px] text-slate-500">Follow-ups</p><p className="font-display text-lg font-bold">7</p></div><div><p className="text-[9px] text-slate-500">Won</p><p className="font-display text-lg font-bold text-cobalt">4</p></div></div>
+            </div>
+          </div>
+          <p className="mt-4 text-center text-[10px] text-slate-copy">Illustrative Silatech system interface</p>
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
 
 export default Hero;

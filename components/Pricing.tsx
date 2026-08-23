@@ -1,114 +1,18 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Check, ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { WHATSAPP_LINK } from '../constants';
 
-const tiers = [
-  {
-    name: 'Systems Diagnostic',
-    price: 'Fixed-Fee Discovery',
-    description: 'A deep-dive into your current operational tech stack, workflows, and bottlenecks. We provide a full audit and systems blueprint.',
-    features: [
-      'Operational Tech Stack Audit',
-      'Workflow Gap Analysis',
-      'Custom Systems Architecture',
-      'Strategic Growth Roadmap'
-    ],
-    highlight: false,
-  },
-  {
-    name: 'Operational Optimization',
-    price: 'Transformation Retainer',
-    description: 'Active implementation of your systems blueprint. We build, automate, and optimize your growth infrastructure.',
-    features: [
-      'Bespoke CRM & Automation Build',
-      'AI Workflow Integration',
-      'Operational Dashboarding',
-      'Systems Training & Support',
-      'Bi-Weekly Strategic Advice'
-    ],
-    highlight: true,
-  },
-  {
-    name: 'Enterprise Transformation',
-    price: 'Custom Partnership',
-    description: 'A comprehensive technological overhaul for complex organizations ready for full digital maturing.',
-    features: [
-      'Custom LLM/AI Agent Builds',
-      'Global Scaling Infrastructure',
-      'Legacy System Modernization',
-      'Dedicated Tech Partner Support',
-      'Full Growth Engineering'
-    ],
-    highlight: false,
-  },
+const offers = [
+  { label: 'Start here', title: 'Business Systems Diagnostic', copy: 'A focused review of your workflows, tools, bottlenecks, and highest-value improvement opportunities.', items: ['Workflow and tool review', 'Priority gap analysis', 'Recommended system roadmap'] },
+  { label: 'Build', title: 'Focused Systems Implementation', copy: 'A defined solution such as lead follow-up, a reporting dashboard, client intake, or appointment reminders.', items: ['Design and implementation', 'Testing and documentation', 'Team training and handover'], featured: true },
+  { label: 'Improve', title: 'Operations Growth Partnership', copy: 'Ongoing monitoring, reporting support, workflow improvement, and small system enhancements.', items: ['System health reviews', 'Reporting and optimization', 'Ongoing advisory support'] },
 ];
 
-const Pricing: React.FC = () => {
-  return (
-    <section id="pricing" className="py-24 relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-brand-blue/5 to-transparent pointer-events-none" />
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="section-label"
-          >
-            Engagement
-          </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Consultation Models</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto mb-6 font-light leading-relaxed">
-            Every organization has unique operational DNA. Solutions are scoped based on operational complexity, business goals, and integration requirements.
-          </p>
-          <div className="flex items-center justify-center space-x-2 text-[10px] font-mono text-brand-blue uppercase tracking-[0.2em] opacity-70">
-            <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
-            <span>Currently evaluating new partners for late Q3</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {tiers.map((tier, i) => (
-            <motion.div
-              key={tier.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`glass-card p-10 flex flex-col ${tier.highlight ? 'ring-2 ring-brand-blue bg-white/10' : ''}`}
-            >
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-                <div className="text-brand-blue font-semibold mb-4">{tier.price}</div>
-                <p className="text-slate-400 text-sm leading-relaxed">{tier.description}</p>
-              </div>
-              
-              <ul className="space-y-4 mb-10 flex-grow">
-                {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start space-x-3 text-sm text-slate-300">
-                    <Check className="w-5 h-5 text-brand-blue flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a 
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`w-full py-4 rounded-xl font-bold transition-all flex items-center justify-center space-x-2 ${tier.highlight ? 'bg-white text-black hover:bg-slate-100' : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'}`}
-              >
-                <span>Initiate Consultation</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+const Pricing = () => (
+  <section id="engagement" className="bg-cloud py-24 text-ink sm:py-32">
+    <div className="shell"><div className="mx-auto max-w-3xl text-center"><span className="eyebrow">Ways to work together</span><h2 className="section-title mt-5 !text-ink">Start with the operational problem. Scale the solution when it proves useful.</h2><p className="body-lg mt-6 text-slate-600">Scope depends on workflow complexity, integrations, team size, and the tools involved. Third-party subscriptions or messaging charges are confirmed before work begins.</p></div>
+      <div className="mt-14 grid gap-5 lg:grid-cols-3">{offers.map(offer => <article key={offer.title} className={`rounded-[1.75rem] p-8 ${offer.featured ? 'bg-ink text-white shadow-2xl' : 'border border-slate-200 bg-white text-ink'}`}><span className={`text-[10px] font-bold uppercase tracking-[.18em] ${offer.featured ? 'text-mint' : 'text-cobalt'}`}>{offer.label}</span><h3 className={`mt-5 text-2xl font-bold ${offer.featured ? '' : '!text-ink'}`}>{offer.title}</h3><p className={`mt-4 text-sm leading-6 ${offer.featured ? 'text-slate-copy' : 'text-slate-600'}`}>{offer.copy}</p><ul className={`my-8 space-y-3 border-y py-6 text-sm font-semibold ${offer.featured ? 'border-white/10 text-slate-200' : 'border-slate-100 text-slate-700'}`}>{offer.items.map(item => <li key={item} className="flex gap-2"><Check className={`h-4 w-4 ${offer.featured ? 'text-mint' : 'text-cobalt'}`} />{item}</li>)}</ul><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className={offer.featured ? 'btn-primary w-full' : 'btn-dark w-full'}>Discuss this option <ArrowRight className="h-4 w-4" /></a></article>)}</div>
+    </div>
+  </section>
+);
 
 export default Pricing;
