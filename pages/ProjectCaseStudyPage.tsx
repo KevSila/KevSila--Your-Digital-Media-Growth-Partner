@@ -88,7 +88,7 @@ const ProjectCaseStudyPage = () => {
           <Link to="/portfolio" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-copy transition hover:text-white"><ArrowLeft className="h-4 w-4" />Back to selected work</Link>
           <div className="mt-10 grid gap-12 lg:grid-cols-[1.02fr_.98fr] lg:items-center">
             <div>
-              <div className="flex flex-wrap items-center gap-3"><span className="eyebrow-light">{project.kicker}</span><span className="rounded-full border border-white/10 bg-white/[.06] px-3 py-1 text-[10px] font-bold text-slate-200">{project.stage}</span></div>
+              <div className="flex flex-wrap items-center gap-3"><span className="eyebrow-light">{project.kicker}</span>{project.stage && <span className="rounded-full border border-white/10 bg-white/[.06] px-3 py-1 text-[10px] font-bold text-slate-200">{project.stage}</span>}</div>
               <h1 className="display-title mt-6">{project.name}</h1>
               <p className="body-lg mt-7 max-w-3xl text-slate-copy">{project.summary}</p>
               <div className="mt-8 flex flex-wrap gap-2">{project.disciplines.map((item) => <span key={item} className="rounded-full border border-white/10 bg-white/[.04] px-3 py-2 text-[11px] font-semibold text-slate-300">{item}</span>)}</div>
