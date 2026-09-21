@@ -10,30 +10,62 @@ const ProjectCaseStudyPage = () => {
   const { slug } = useParams();
   const project = getPortfolioProject(slug);
 
-  useEffect(() => window.scrollTo(0, 0), [slug]);
-
   useEffect(() => {
     if (!project) return;
+
     const id = 'portfolio-case-study-schema';
     document.getElementById(id)?.remove();
+
+    const url = `${SITE_URL}/portfolio/${project.slug}`;
     const script = document.createElement('script');
     script.id = id;
     script.type = 'application/ld+json';
     script.text = JSON.stringify({
       '@context': 'https://schema.org',
-      '@type': 'CreativeWork',
-      name: project.name,
-      description: project.metaDescription,
-      url: `${SITE_URL}/portfolio/${project.slug}`,
-      creator: { '@type': 'Organization', name: 'Silatech Growth Partners', url: SITE_URL },
-      keywords: project.disciplines.join(', ')
+      '@graph': [
+        {
+          '@type': 'CreativeWork',
+          name: project.name,
+          description: project.metaDescription,
+          url,
+          mainEntityOfPage: url,
+          isPartOf: { '@type': 'CollectionPage', name: 'Silatech Growth Partners Portfolio', url: `${SITE_URL}/portfolio` },
+          creator: { '@type': 'Organization', name: 'Silatech Growth Partners', url: SITE_URL },
+          keywords: project.disciplines.join(', ')
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+            { '@type': 'ListItem', position: 2, name: 'Portfolio', item: `${SITE_URL}/portfolio` },
+            { '@type': 'ListItem', position: 3, name: project.shortName, item: url }
+          ]
+        }
+      ]
     });
+
     document.head.appendChild(script);
     return () => script.remove();
   }, [project]);
 
   if (!project) {
-    return <section className="grid min-h-[75vh] place-items-center bg-cloud px-6 pt-24 text-center text-ink"><div><p className="eyebrow">Case study not found</p><h1 className="mt-5 text-4xl font-bold !text-ink">This project is not in the portfolio.</h1><Link to="/portfolio" className="btn-dark mt-8">Back to portfolio</Link></div></section>;
+    return (
+      <>
+        <PageMeta
+          title="Case Study Not Found | Silatech Growth Partners"
+          description="The requested Silatech case study could not be found."
+          path={slug ? `/portfolio/${slug}` : '/portfolio'}
+          robots="noindex, follow"
+        />
+        <section className="grid min-h-[75vh] place-items-center bg-cloud px-6 pt-24 text-center text-ink">
+          <div>
+            <p className="eyebrow">Case study not found</p>
+            <h1 className="mt-5 text-4xl font-bold !text-ink">This project is not in the portfolio.</h1>
+            <Link to="/portfolio" className="btn-dark mt-8">Back to portfolio</Link>
+          </div>
+        </section>
+      </>
+    );
   }
 
   const currentIndex = portfolioProjects.findIndex((item) => item.slug === project.slug);
@@ -41,7 +73,13 @@ const ProjectCaseStudyPage = () => {
 
   return (
     <>
-      <PageMeta path={`/portfolio/${project.slug}`} title={`${project.name} Case Study | Silatech Growth Partners`} description={project.metaDescription} />
+      <PageMeta
+        path={`/portfolio/${project.slug}`}
+        title={`${project.name} Case Study | Silatech Growth Partners`}
+        description={project.metaDescription}
+        ogType="article"
+        imageAlt={`${project.name} case study by Silatech Growth Partners`}
+      />
 
       <section className="relative overflow-hidden bg-ink pb-20 pt-28 sm:pb-28 sm:pt-36">
         <div className="hero-grid absolute inset-0" />
