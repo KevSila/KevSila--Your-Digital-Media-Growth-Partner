@@ -75,7 +75,7 @@ export const portfolioProjects: PortfolioProject[] = [
         caption: 'A customer-facing order flow connects product selection and delivery details to structured order records.'
       },
       {
-        src: '/portfolio/asili-dashboard.jpg',
+        src: '/portfolio/asili-dashboard.webp',
         alt: 'Asili Business Helper owner dashboard showing orders, sales, product variants and sales channels',
         label: 'Owner visibility',
         caption: 'The owner dashboard brings order status, sales, product variants, and sales-channel visibility into one operating view.'
@@ -127,7 +127,7 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     proofScreens: [
       {
-        src: '/portfolio/beeepic-blueprint.jpg',
+        src: '/portfolio/beeepic-blueprint.webp',
         alt: 'BeeEPiC WISDOM Delegation Blueprint showing recommended support and a client-facing systems summary',
         label: 'Recommendation blueprint',
         caption: 'The workflow turns structured assessment inputs into a client-readable delegation blueprint, with review controls kept separate from the client-facing output.'
@@ -141,7 +141,7 @@ export const portfolioProjects: PortfolioProject[] = [
     name: 'Stawi — Fitness & Wellbeing Platform',
     shortName: 'Stawi',
     kicker: 'Product strategy · Member experience · Coach visibility',
-    stage: 'Product R&D · Alpha 0.6.0',
+    stage: '',
     summary:
       'A client-centred, trainer-connected fitness and wellbeing product exploring how training, nourishment, recovery, progress, and professional support can work as one coherent experience.',
     metaDescription:
@@ -180,13 +180,13 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     proofScreens: [
       {
-        src: 'https://raw.githubusercontent.com/KevSila/trainer-os/main/docs/design-references/member-today.png',
+        src: '/portfolio/stawi-member.webp',
         alt: 'Stawi member Today screen with training, programme adherence, nutrition context and coach message',
         label: 'Member Today',
         caption: 'The member workspace brings prescribed training, adherence evidence, nutrition context, and coach communication into one daily view.'
       },
       {
-        src: 'https://raw.githubusercontent.com/KevSila/trainer-os/main/docs/design-references/trainer-attention.png',
+        src: '/portfolio/stawi-coach.webp',
         alt: 'Stawi coach dashboard showing priority clients who need review or follow-up',
         label: 'Coach attention',
         caption: 'The coach workspace prioritizes clients needing attention from observable activity instead of forcing the trainer to inspect every client manually.'
