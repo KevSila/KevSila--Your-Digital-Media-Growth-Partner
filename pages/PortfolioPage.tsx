@@ -95,7 +95,7 @@ const PortfolioPage = () => {
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="eyebrow">{project.kicker}</span>
-                    <span className="rounded-full bg-[#eaf0ff] px-3 py-1 text-[10px] font-bold text-cobalt">{project.stage}</span>
+                    {project.stage && <span className="rounded-full bg-[#eaf0ff] px-3 py-1 text-[10px] font-bold text-cobalt">{project.stage}</span>}
                   </div>
                   <h3 className="mt-5 font-display text-3xl font-bold leading-tight tracking-[-.035em] !text-ink sm:text-4xl">{project.name}</h3>
                   <p className="body-lg mt-5 text-slate-600">{project.summary}</p>
