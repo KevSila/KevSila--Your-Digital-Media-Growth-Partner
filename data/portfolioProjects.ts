@@ -15,6 +15,8 @@ export type PortfolioProject = {
   evidence: string[];
   next: string[];
   externalLinks?: { label: string; href: string }[];
+  proofScreens?: { src: string; alt: string; label: string; caption: string }[];
+  proofNote?: string;
   visual: 'asili' | 'beeepic' | 'stawi';
 };
 
@@ -65,6 +67,21 @@ export const portfolioProjects: PortfolioProject[] = [
       { label: 'Visit Asili', href: 'https://asilii.netlify.app' },
       { label: 'View batch passport', href: 'https://asilii.netlify.app/b/sample-2604-01' }
     ],
+    proofScreens: [
+      {
+        src: '/portfolio/asili-order.jpg',
+        alt: 'Asili public honey ordering interface showing jar selection and delivery details',
+        label: 'Customer ordering',
+        caption: 'A customer-facing order flow connects product selection and delivery details to structured order records.'
+      },
+      {
+        src: '/portfolio/asili-dashboard.jpg',
+        alt: 'Asili Business Helper owner dashboard showing orders, sales, product variants and sales channels',
+        label: 'Owner visibility',
+        caption: 'The owner dashboard brings order status, sales, product variants, and sales-channel visibility into one operating view.'
+      }
+    ],
+    proofNote: 'Selected screens show the working Asili experience while excluding customer-identifying records from the public case study.',
     visual: 'asili'
   },
   {
@@ -108,6 +125,15 @@ export const portfolioProjects: PortfolioProject[] = [
       'Strengthen observability, testing, versioning, and administrative controls as usage expands.',
       'Use accumulated structured assessments to identify recurring delegation and systems patterns without exposing individual client data.'
     ],
+    proofScreens: [
+      {
+        src: '/portfolio/beeepic-blueprint.jpg',
+        alt: 'BeeEPiC WISDOM Delegation Blueprint showing recommended support and a client-facing systems summary',
+        label: 'Recommendation blueprint',
+        caption: 'The workflow turns structured assessment inputs into a client-readable delegation blueprint, with review controls kept separate from the client-facing output.'
+      }
+    ],
+    proofNote: 'Because this was client work, the public case study intentionally shows only a limited, sanitized view of the delivered workflow.',
     visual: 'beeepic'
   },
   {
@@ -152,6 +178,21 @@ export const portfolioProjects: PortfolioProject[] = [
       'Validate repeated use with trainers and members before committing to a larger production architecture.',
       'Add communication and coach review features without creating conflicting trainer-prescribed and self-directed workloads.'
     ],
+    proofScreens: [
+      {
+        src: 'https://raw.githubusercontent.com/KevSila/trainer-os/main/docs/design-references/member-today.png',
+        alt: 'Stawi member Today screen with training, programme adherence, nutrition context and coach message',
+        label: 'Member Today',
+        caption: 'The member workspace brings prescribed training, adherence evidence, nutrition context, and coach communication into one daily view.'
+      },
+      {
+        src: 'https://raw.githubusercontent.com/KevSila/trainer-os/main/docs/design-references/trainer-attention.png',
+        alt: 'Stawi coach dashboard showing priority clients who need review or follow-up',
+        label: 'Coach attention',
+        caption: 'The coach workspace prioritizes clients needing attention from observable activity instead of forcing the trainer to inspect every client manually.'
+      }
+    ],
+    proofNote: 'These are product R&D / Alpha screens from the current Stawi prototype, not a launched production service.',
     visual: 'stawi'
   }
 ];
