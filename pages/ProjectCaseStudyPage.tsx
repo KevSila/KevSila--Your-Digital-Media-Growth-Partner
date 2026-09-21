@@ -122,6 +122,38 @@ const ProjectCaseStudyPage = () => {
         </div>
       </section>
 
+      {project.proofScreens?.length ? (
+        <section className="bg-white py-24 text-ink sm:py-32">
+          <div className="shell">
+            <div className="max-w-3xl">
+              <span className="eyebrow">Inside the work</span>
+              <h2 className="section-title mt-5 !text-ink">Selected screens from the working experience.</h2>
+              {project.proofNote && <p className="body-lg mt-6 text-slate-600">{project.proofNote}</p>}
+            </div>
+
+            <div className={`mt-12 grid gap-7 ${project.proofScreens.length > 1 ? 'lg:grid-cols-2' : 'mx-auto max-w-5xl'}`}>
+              {project.proofScreens.map((screen) => (
+                <figure key={screen.src} className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-cloud shadow-[0_24px_70px_rgba(7,20,38,.08)]">
+                  <div className="overflow-hidden border-b border-slate-200 bg-white">
+                    <img
+                      src={screen.src}
+                      alt={screen.alt}
+                      loading="lazy"
+                      decoding="async"
+                      className="block h-auto w-full"
+                    />
+                  </div>
+                  <figcaption className="p-6 sm:p-7">
+                    <p className="text-[11px] font-bold uppercase tracking-[.16em] text-cobalt">{screen.label}</p>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{screen.caption}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       <section className="bg-white py-24 text-ink sm:py-32">
         <div className="shell grid gap-12 lg:grid-cols-[.86fr_1.14fr] lg:items-start">
           <div><span className="eyebrow">Operational value</span><h2 className="section-title mt-5 !text-ink">What the system is designed to improve.</h2><p className="body-lg mt-6 text-slate-600">These are capability and workflow improvements, not invented revenue or conversion claims.</p></div>
