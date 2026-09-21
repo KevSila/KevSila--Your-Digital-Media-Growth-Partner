@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PageMeta from '../components/PageMeta';
 import PortfolioVisual from '../components/portfolio/PortfolioVisual';
 import { portfolioProjects } from '../data/portfolioProjects';
-import { WHATSAPP_LINK } from '../constants';
+import { SITE_URL, WHATSAPP_LINK } from '../constants';
 
 const proofPrinciples = [
   { icon: Search, title: 'Problem first', copy: 'Each project starts with the operational or product problem before choosing a tool.' },
@@ -13,7 +13,35 @@ const proofPrinciples = [
 ];
 
 const PortfolioPage = () => {
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => {
+    const id = 'portfolio-collection-schema';
+    document.getElementById(id)?.remove();
+
+    const script = document.createElement('script');
+    script.id = id;
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Silatech Growth Partners Portfolio',
+      description: 'Selected Silatech case studies across business systems, product UX, operational intelligence, and AI-assisted workflows.',
+      url: `${SITE_URL}/portfolio`,
+      isPartOf: { '@type': 'WebSite', name: 'Silatech Growth Partners', url: SITE_URL },
+      mainEntity: {
+        '@type': 'ItemList',
+        numberOfItems: portfolioProjects.length,
+        itemListElement: portfolioProjects.map((project, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          url: `${SITE_URL}/portfolio/${project.slug}`,
+          name: project.name
+        }))
+      }
+    });
+
+    document.head.appendChild(script);
+    return () => script.remove();
+  }, []);
 
   return (
     <>
