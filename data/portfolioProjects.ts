@@ -141,7 +141,7 @@ export const portfolioProjects: PortfolioProject[] = [
     name: 'Stawi — Fitness & Wellbeing Platform',
     shortName: 'Stawi',
     kicker: 'Product strategy · Member experience · Coach visibility',
-    stage: 'Product R&D · Alpha 0.6.0',
+    stage: '',
     summary:
       'A client-centred, trainer-connected fitness and wellbeing product exploring how training, nourishment, recovery, progress, and professional support can work as one coherent experience.',
     metaDescription:
