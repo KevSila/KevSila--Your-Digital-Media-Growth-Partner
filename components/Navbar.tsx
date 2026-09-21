@@ -41,6 +41,7 @@ const Navbar = () => {
           {NAV_LINKS.map((item) => (
             <a key={item.name} href={item.href} className="text-sm font-semibold text-slate-copy transition hover:text-white">{item.name}</a>
           ))}
+          <Link to="/portfolio" className="text-sm font-semibold text-slate-copy transition hover:text-white">Portfolio</Link>
           <Link to="/business-systems-automation" className="text-sm font-semibold text-slate-copy transition hover:text-white">Systems</Link>
           <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-primary px-5 py-3">
             Book a diagnostic <ArrowUpRight className="h-4 w-4" />
@@ -54,6 +55,7 @@ const Navbar = () => {
         <div id="mobile-menu" className="shell max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain border-t border-white/8 py-6 xl:hidden">
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((item) => <a key={item.name} href={item.href} onClick={() => setOpen(false)} className="rounded-xl px-3 py-3 text-base font-semibold text-slate-200 hover:bg-white/5">{item.name}</a>)}
+            <Link to="/portfolio" className="rounded-xl px-3 py-3 text-base font-semibold text-slate-200 hover:bg-white/5">Portfolio</Link>
             <Link to="/business-systems-automation" className="rounded-xl px-3 py-3 text-base font-semibold text-slate-200 hover:bg-white/5">Business systems</Link>
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-primary mt-4">Book a diagnostic <ArrowUpRight className="h-4 w-4" /></a>
           </div>
