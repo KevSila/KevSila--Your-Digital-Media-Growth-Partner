@@ -2,7 +2,7 @@ import { Activity, ArrowRight, BadgeCheck, BarChart3, CheckCircle2, ClipboardLis
 import type { PortfolioProject } from '../../data/portfolioProjects';
 
 const AsiliVisual = () => (
-  <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-ink p-5 shadow-2xl sm:p-7" aria-label="Illustrative Asili Business Helper interface">
+  <div role="img" className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-ink p-5 shadow-2xl sm:p-7" aria-label="Illustrative Asili Business Helper interface">
     <div className="hero-grid absolute inset-0 opacity-30" />
     <div className="relative">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
@@ -32,7 +32,7 @@ const AsiliVisual = () => (
 );
 
 const BeeEpicVisual = () => (
-  <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1c34] p-5 shadow-2xl sm:p-7" aria-label="Illustrative BeeEPiC WISDOM Mapper workflow">
+  <div role="img" className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0b1c34] p-5 shadow-2xl sm:p-7" aria-label="Illustrative BeeEPiC WISDOM Mapper workflow">
     <div className="hero-grid absolute inset-0 opacity-25" />
     <div className="relative">
       <div className="mb-6 flex items-center justify-between gap-3"><div><p className="text-[10px] font-bold uppercase tracking-[.16em] text-mint">WISDOM Mapper</p><p className="mt-1 text-xs text-slate-copy">Structured assessment flow</p></div><Sparkles className="h-5 w-5 text-mint" /></div>
@@ -56,7 +56,7 @@ const BeeEpicVisual = () => (
 );
 
 const StawiVisual = () => (
-  <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#091a20] p-5 shadow-2xl sm:p-7" aria-label="Illustrative Stawi member and trainer product experience">
+  <div role="img" className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#091a20] p-5 shadow-2xl sm:p-7" aria-label="Illustrative Stawi member and trainer product experience">
     <div className="absolute -right-24 -top-20 h-64 w-64 rounded-full bg-mint/10 blur-3xl" />
     <div className="relative grid gap-4 sm:grid-cols-[.82fr_1.18fr]">
       <div className="mx-auto w-full max-w-[245px] rounded-[2rem] border border-white/10 bg-[#102a31] p-3">
