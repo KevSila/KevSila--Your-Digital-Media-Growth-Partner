@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "node scripts/build.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && node scripts/check-contact.mjs && node scripts/validate.mjs",
+    "check:http": "node scripts/check-http.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

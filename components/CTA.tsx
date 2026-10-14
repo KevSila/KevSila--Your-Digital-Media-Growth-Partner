@@ -1,11 +1,6 @@
 import { ArrowRight, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { WHATSAPP_LINK } from '../constants';
-
-const CTA = () => (
-  <section className="relative overflow-hidden bg-ink py-24 sm:py-32">
-    <div className="hero-orb absolute -left-48 -top-48 h-[600px] w-[600px]" /><div className="mint-orb absolute -bottom-56 -right-40 h-[620px] w-[620px]" />
-    <div className="shell relative text-center"><span className="eyebrow-light">Your next step</span><h2 className="mx-auto mt-6 max-w-4xl font-display text-[2rem] font-bold leading-tight tracking-[-.04em] text-white sm:text-5xl lg:text-6xl">Your business should not depend on remembering everything.</h2><p className="body-lg mx-auto mt-7 max-w-2xl text-slate-copy">Let us identify where leads, time, and information are getting lost—and build a practical system that helps your business run better.</p><div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row"><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-primary w-full sm:w-auto">Book a diagnostic <ArrowRight className="h-4 w-4" /></a><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-light w-full sm:w-auto"><MessageCircle className="h-4 w-4 text-mint" /> Message us on WhatsApp</a></div></div>
-  </section>
-);
-
-export default CTA;
+export default function CTA() {
+  return <section className="relative overflow-hidden bg-ink py-20 sm:py-28"><div className="mint-orb pointer-events-none absolute -right-40 -top-48 h-[620px] w-[620px]" aria-hidden="true" /><div className="shell relative grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-end"><div><span className="eyebrow-light">Let’s find your next step</span><h2 className="section-title mt-6 max-w-3xl">A business challenge.<br />A new idea.<br /><span className="text-sky">A clearer way forward.</span></h2></div><div><p className="body-lg max-w-lg text-slate-copy">Tell us what you want to improve or build. You don’t need a technical brief to start.</p><div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap"><Link to="/contact?intent=project" className="btn-primary">Discuss your project <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link><a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-light"><MessageCircle aria-hidden="true" className="h-4 w-4" /> WhatsApp us</a></div></div></div></section>;
+}

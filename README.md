@@ -2,63 +2,79 @@
 
 **Technology Solutions & Digital Transformation**
 
-Silatech helps businesses choose and implement the right technology, connect and improve their existing tools, streamline operations, adopt AI responsibly, and make better decisions.
+We help businesses choose and implement the right technology, connect and improve their existing tools, streamline operations, adopt AI responsibly, and make better decisions.
 
-We work with solo founders, small businesses, professional firms, established companies, nonprofits and other organisations — from first digital setup to platform optimisation and more complex technology projects.
+Silatech serves solo founders, small businesses, professional firms, established companies, nonprofits and other organisations. The site welcomes both first digital setups and improvements to existing platforms.
 
-**Website:** https://kevsilaservices.netlify.app/
+## Local development on Windows
 
-## Our approach
+Active development checkout: `D:\CodexProjects\Silatech-Growth-Partners-Windows`.
 
-We start with the person and the business problem, not a preferred tool. Sometimes the right answer is a better website or an existing platform configured properly. Sometimes it is improved data quality, training, a workflow change, an integration or a custom product. We recommend the smallest maintainable solution that delivers value.
+Use Windows-native Git and Node.js. The implementation was built with Node.js 24.18.0 and npm 11.16.0. React Router requires Node.js 20 or later. Node.js 24 LTS is a suitable development environment.
 
-- **Technology strategy and adoption:** discovery, technology selection, audits, roadmaps, implementation support and training.
-- **Business platforms and integrations:** configuration and connection of existing tools, including Google Workspace, Microsoft 365, CRM and other SaaS platforms.
-- **AI and automation:** practical AI-assisted workflows, agents, approvals and orchestration with human oversight.
-- **Data and operational intelligence:** dashboards, reporting, data organisation and decision support.
-- **Websites and digital growth:** digital presence, SEO, analytics, customer journeys and connected lead-generation tools.
-- **Custom applications and digital products:** tailored business tools, portals and product prototypes where off-the-shelf software is insufficient.
-
-Security, privacy, access controls, documentation, handover and responsible AI practices are considered throughout delivery. Capabilities and services are scoped to each engagement; the site does not imply independent certification, guaranteed ROI or verified results without evidence.
-
-## Selected work
-
-The portfolio includes the Asili commerce and Business Helper living-lab project, the BeeEPiC WISDOM Mapper client workflow case study (with limited public information), and Stawi, a fitness and wellbeing product prototype. Each case study distinguishes what has been implemented from work still being developed.
-
-- [Selected work](https://kevsilaservices.netlify.app/portfolio)
-- [Business systems and automation](https://kevsilaservices.netlify.app/business-systems-automation)
-- [Founder's personal portfolio](https://kevsilaportfolio.netlify.app/)
-
-## Website architecture
-
-The marketing website is built with React, TypeScript, Vite, React Router, Tailwind CSS and Motion. The site includes a homepage, a business systems service page, a portfolio index and individual case studies. Metadata, sitemap and robots directives are tracked in this repository.
-
-```text
-/
-/business-systems-automation
-/portfolio
-/portfolio/asili-business-helper
-/portfolio/beeepic-wisdom-mapper
-/portfolio/stawi
+```powershell
+Set-Location D:\CodexProjects\Silatech-Growth-Partners-Windows
+npm ci
+npm run dev -- --host 127.0.0.1
 ```
 
-## Local development
+For the production experience, including prerendered HTML:
 
-Requirements: Node.js and npm.
-
-```bash
-npm install
-npm run dev
+```powershell
+npm run build
+npm run check
+npm run check:http
+npm run preview -- --host 127.0.0.1 --port 4173
 ```
 
-Use the scripts defined in `package.json` for available builds and checks.
+Open `http://127.0.0.1:4173/`. Vite development mode serves the interactive application; the production build adds route-specific HTML for crawlers and previews.
 
-## Production and verification
+The Windows-compatible archive filename was introduced in a local commit on `codex/technology-solutions-revamp`. It is a content-identical rename of one historical JSON file. The original filename and complete commit history remain available in parent commits. Sparse checkout and a persistent NTFS-protection override are not needed for the current development branch. Old commits that contain the incompatible filename still cannot be fully checked out by ordinary Git for Windows.
 
-This repository is connected to Netlify. Review production build availability, repository integrations and deployment settings before merging. Google Analytics and Search Console verification are being prepared in a separate release branch while production builds are constrained.
+The original incomplete checkout and its verified backup are separate and should be preserved.
 
-Avoid committing API keys, credentials or client data. Keep private or client-owned implementations and data in their respective repositories. All screenshots and client case-study disclosures should be reviewed for permission and privacy before publication.
+## Architecture
 
-## Project management
+The website retains React 19, TypeScript, Vite, Tailwind CSS 4, React Router, Motion and Lucide. No runtime or build dependencies were added for the revamp, and the release lockfile is unchanged.
 
-Substantial updates are developed in branches and reviewed before merging into `main`. The public site and case-study content should preserve truthful implementation status and documented evidence.
+- `data/services.ts`: six service definitions, deliverables, scope boundaries and relationships.
+- `data/portfolioProjects.ts`: portfolio evidence, roadmap, image descriptions and intrinsic dimensions.
+- `data/siteMetadata.ts`: public routes, unique metadata and structured data.
+- `components/`: shared brand styling, page sections, navigation and related-service links.
+- `pages/`: service, portfolio, business systems and contact views.
+- `entry-server.tsx`: static rendering of the same page components.
+- `scripts/build.mjs`: Vite build followed by prerendering using the existing React/Vite packages.
+- `scripts/validate.mjs`: production HTML, metadata, schema, links, legacy anchors and protected-file checks.
+- `scripts/check-contact.mjs`: contact intent payload and enquiry privacy checks.
+- `scripts/check-http.mjs`: clean-URL production HTML and verification-file HTTP checks.
+
+The build generates the homepage, service overview, six service pages, business systems page, portfolio index, three case studies, enquiry page and privacy page. Non-home routes are emitted as `.html` files so Vite preview can serve clean URLs directly; a separate noindex `404.html` is also generated. The production sitemap is derived from the same metadata catalogue, and checks ensure it matches the tracked source sitemap.
+
+Client hydration retains prerendered content while lazy page chunks load. Query-driven service selection is applied after hydration to keep initial markup consistent. Unknown paths render a client-side noindex page; the existing Netlify SPA fallback remains unchanged and still needs hosting-level status review before a release.
+
+## Services and philosophy
+
+1. Technology Strategy & Adoption
+2. Business Platforms & Integrations
+3. AI, Agents & Workflow Automation
+4. Data, Dashboards & Decision Support
+5. Websites & Digital Growth Infrastructure
+6. Custom Applications & Digital Products
+
+“Systemic clarity follows the subtraction of the unnecessary.”
+
+Start with the real business problem. Recommend existing tools where they fit, build custom solutions when justified, and include adoption, documentation, security, privacy, appropriate human oversight and ownership in the scope of delivery.
+
+Platform names describe possible client tools, not certifications or formal partnerships. Project claims must distinguish implemented functionality, demonstrations, prototypes and roadmap work.
+
+## Protected work and enquiries
+
+All five repaired portfolio images and `public/googlec555c9832d27b872.html` remain unchanged from release `362d4e09`. The three case studies remain available at their original URLs. Stawi has no prominent technical Alpha badge, and its prototype limitations are explained in the text. Asili sample traceability is not independently verified production evidence.
+
+GA4 property `G-1JH25BX9F8` is preserved. Custom WhatsApp and phone events contain method and placement, not enquiry drafts or message-bearing URLs. Browser enquiry fields prepare a WhatsApp message without a Silatech submission database; the visitor reviews and sends it in WhatsApp. Live Analytics reporting, enhanced-measurement settings and Search Console ownership require account-side verification.
+
+## Release safeguards
+
+Do not push, merge or deploy without explicit approval. The connected public site remains `https://kevsilaservices.netlify.app/`; no domain, repository, deployment integration or Netlify setting was changed. The canonical host remains the existing production host.
+
+Review `REVIEW.md` for route-level SEO results, visual checks, performance measurements and remaining concerns. The existing dependency lockfile reports nine npm audit advisories (two low, one moderate, six high); dependency remediation should be reviewed and validated before a public release. Do not apply a broad automatic fix without inspecting the proposed changes.

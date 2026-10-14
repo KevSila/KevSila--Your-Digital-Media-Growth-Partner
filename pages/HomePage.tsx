@@ -6,18 +6,10 @@ import Pricing from '../components/Pricing';
 import Process from '../components/Process';
 import Services from '../components/Services';
 import WhySilatech from '../components/WhySilatech';
-
-const HomePage = () => (
-  <>
-    <PageMeta title="AI Business Automation & Operational Systems in Kenya | Silatech" description="Silatech helps Kenyan SMEs and growing organizations organize WhatsApp leads, automate follow-ups, improve reporting, and build practical business systems." />
-    <Hero />
-    <Services />
-    <Industries />
-    <Process />
-    <WhySilatech />
-    <Pricing />
-    <CTA />
-  </>
-);
-
-export default HomePage;
+import StartingPoints from '../components/StartingPoints';
+import SelectedWork from '../components/SelectedWork';
+import ResponsibleDelivery from '../components/ResponsibleDelivery';
+import { pageMetadata } from '../data/siteMetadata';
+export default function HomePage() {
+  return <><PageMeta {...pageMetadata['/']} /><Hero /><StartingPoints /><Services /><SelectedWork /><Process /><ResponsibleDelivery /><Industries /><WhySilatech /><Pricing /><CTA /></>;
+}

@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
 import { ArrowRight, CheckCircle2, Search, ShieldCheck, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageMeta from '../components/PageMeta';
+import { pageMetadata } from '../data/siteMetadata';
 import PortfolioVisual from '../components/portfolio/PortfolioVisual';
 import { portfolioProjects } from '../data/portfolioProjects';
-import { SITE_URL, WHATSAPP_LINK } from '../constants';
+import { WHATSAPP_LINK } from '../constants';
 
 const proofPrinciples = [
   { icon: Search, title: 'Problem first', copy: 'Each project starts with the operational or product problem before choosing a tool.' },
@@ -13,43 +13,10 @@ const proofPrinciples = [
 ];
 
 const PortfolioPage = () => {
-  useEffect(() => {
-    const id = 'portfolio-collection-schema';
-    document.getElementById(id)?.remove();
-
-    const script = document.createElement('script');
-    script.id = id;
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: 'Silatech Growth Partners Portfolio',
-      description: 'Selected Silatech case studies across business systems, product UX, operational intelligence, and AI-assisted workflows.',
-      url: `${SITE_URL}/portfolio`,
-      isPartOf: { '@type': 'WebSite', name: 'Silatech Growth Partners', url: SITE_URL },
-      mainEntity: {
-        '@type': 'ItemList',
-        numberOfItems: portfolioProjects.length,
-        itemListElement: portfolioProjects.map((project, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          url: `${SITE_URL}/portfolio/${project.slug}`,
-          name: project.name
-        }))
-      }
-    });
-
-    document.head.appendChild(script);
-    return () => script.remove();
-  }, []);
 
   return (
     <>
-      <PageMeta
-        path="/portfolio"
-        title="Business Systems & Product Portfolio | Silatech Growth Partners"
-        description="Explore Silatech case studies across business operations, product UX, AI-assisted workflows, dashboards, traceability, and connected digital systems."
-      />
+      <PageMeta {...pageMetadata['/portfolio']} />
 
       <section className="relative overflow-hidden bg-ink pb-24 pt-32 sm:pb-32 sm:pt-44">
         <div className="hero-grid absolute inset-0" />
@@ -58,7 +25,7 @@ const PortfolioPage = () => {
         <div className="shell relative">
           <div className="max-w-4xl">
             <span className="eyebrow-light">Selected work</span>
-            <h1 className="display-title mt-6">Systems built around <span className="text-gradient">real operational problems.</span></h1>
+            <h1 className="display-title mt-6">Technology shaped around <span className="text-gradient">real business and product needs.</span></h1>
             <p className="body-lg mt-7 max-w-3xl text-slate-copy">Explore how Silatech approaches business systems, digital products, operational intelligence, and AI-assisted workflows—from understanding the problem to designing the experience and building the working system.</p>
             <div className="mt-8 flex flex-wrap gap-2 text-xs font-semibold text-slate-300">
               {['Business systems', 'Product UX', 'Operational intelligence', 'AI-assisted workflows'].map((item) => <span key={item} className="rounded-full border border-white/10 bg-white/[.05] px-4 py-2">{item}</span>)}
@@ -100,9 +67,9 @@ const PortfolioPage = () => {
                   <h3 className="mt-5 font-display text-3xl font-bold leading-tight tracking-[-.035em] !text-ink sm:text-4xl">{project.name}</h3>
                   <p className="body-lg mt-5 text-slate-600">{project.summary}</p>
                   <div className="mt-7 grid gap-2 sm:grid-cols-2">
-                    {project.value.slice(0, 4).map((item) => <p key={item} className="flex gap-2 text-sm font-semibold leading-6 text-slate-700"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-mint" />{item}</p>)}
+                    {project.value.slice(0, 4).map((item) => <p key={item} className="flex gap-2 text-sm font-semibold leading-6 text-slate-700"><CheckCircle2 aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-mint" />{item}</p>)}
                   </div>
-                  <Link to={`/portfolio/${project.slug}`} className="btn-dark mt-8">View case study <ArrowRight className="h-4 w-4" /></Link>
+                  <Link to={`/portfolio/${project.slug}`} className="btn-dark mt-8">View case study <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
                 </div>
               </article>
             ))}
@@ -132,7 +99,7 @@ const PortfolioPage = () => {
         <div className="shell">
           <div className="rounded-[2rem] bg-[#eaf0ff] p-6 sm:p-12 lg:flex lg:items-center lg:justify-between lg:gap-8">
             <div className="max-w-2xl"><span className="eyebrow">Your workflow could be next</span><h2 className="mt-5 font-display text-3xl font-bold leading-tight tracking-[-.03em] !text-ink sm:text-4xl">Start with the problem worth fixing.</h2><p className="mt-5 text-base leading-7 text-slate-600">We can review your current process, identify the highest-value leak or visibility gap, and scope a realistic first improvement.</p></div>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-dark mt-8 w-full shrink-0 sm:w-auto lg:mt-0">Book a systems diagnostic <ArrowRight className="h-4 w-4" /></a>
+            <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-dark mt-8 w-full shrink-0 sm:w-auto lg:mt-0">Discuss your technology needs <ArrowRight aria-hidden="true" className="h-4 w-4" /></a>
           </div>
         </div>
       </section>
