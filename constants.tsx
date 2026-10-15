@@ -10,8 +10,8 @@ export const SOCIAL_LINKS = {
   portfolio: 'https://kevsilaportfolio.netlify.app',
 };
 export const NAV_LINKS = [
-  { name: 'Services', href: '/services' },
-  { name: 'Selected work', href: '/portfolio' },
-  { name: 'Our approach', href: '/#process' },
-  { name: 'About', href: '/#about' },
+  { name: 'Solutions', href: '/solutions' },
+  { name: 'Our Work', href: '/portfolio' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
 ];

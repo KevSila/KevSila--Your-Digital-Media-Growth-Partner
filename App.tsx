@@ -1,3 +1,7 @@
+const SolutionsPage=lazy(()=>import('./pages/SolutionsPage'));
+const ApproachPage=lazy(()=>import('./pages/ApproachPage'));
+const PricingPage=lazy(()=>import('./pages/PricingPage'));
+const AboutPage=lazy(()=>import('./pages/AboutPage'));
 import { lazy, Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import SiteLayout from './components/SiteLayout';
@@ -29,5 +33,5 @@ function RouteScrollManager() {
   return null;
 }
 export default function App() {
-  return <BrowserRouter><RouteScrollManager /><SiteLayout><Suspense fallback={<div role="status" className="shell min-h-[70vh] pt-36 text-slate-copy">Loading page…</div>}><Routes><Route path="/" element={<HomePage />} /><Route path="/services" element={<ServicesPage />} /><Route path="/services/:slug" element={<ServicePage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/privacy" element={<PrivacyPage />} /><Route path="/business-systems-automation" element={<BusinessSystemsPage />} /><Route path="/portfolio" element={<PortfolioPage />} /><Route path="/portfolio/:slug" element={<ProjectCaseStudyPage />} /><Route path="*" element={<NotFound />} /></Routes></Suspense></SiteLayout></BrowserRouter>;
+  return <BrowserRouter><RouteScrollManager /><SiteLayout><Suspense fallback={<div role="status" className="shell min-h-[70vh] pt-36 text-slate-copy">Loading page…</div>}><Routes><Route path="/" element={<HomePage />} /><Route path="/services" element={<ServicesPage />} /><Route path="/services/:slug" element={<ServicePage />} /><Route path="/solutions" element={<SolutionsPage />} /><Route path="/approach" element={<ApproachPage />} /><Route path="/pricing" element={<PricingPage />} /><Route path="/about" element={<AboutPage />} /><Route path="/contact" element={<ContactPage />} /><Route path="/privacy" element={<PrivacyPage />} /><Route path="/business-systems-automation" element={<BusinessSystemsPage />} /><Route path="/portfolio" element={<PortfolioPage />} /><Route path="/portfolio/:slug" element={<ProjectCaseStudyPage />} /><Route path="*" element={<NotFound />} /></Routes></Suspense></SiteLayout></BrowserRouter>;
 }

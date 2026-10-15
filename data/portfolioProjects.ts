@@ -159,7 +159,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'Designed distinct member and coach workspaces around the same underlying programme and workout evidence.',
       'Built programme, workout-player, completion-summary, client, review, and attention flows in an interactive frontend prototype.',
       'Added a member-created workout path that remains separate from trainer-prescribed programme completion.',
-      'Introduced durable local workout-session evidence so refreshes do not silently erase active or completed work.',
+      'Implemented device-local workout-session history for active and completed work, including repeated sessions. Browser storage can still be cleared or evicted and is not a backup.',
       'Separated workout completion from longer-period programme adherence so the product does not collapse different behaviours into one metric.',
       'Created an installable PWA shell and a structured exercise catalogue foundation for later product expansion.'
     ],
@@ -170,14 +170,14 @@ export const portfolioProjects: PortfolioProject[] = [
       'Shows Silatech product thinking beyond workflow automation: information architecture, interaction design, domain rules, and product boundaries.'
     ],
     evidence: [
-      'Current status is an interactive frontend Alpha 0.6.0 prototype rather than a production fitness service.',
-      'Member and coach routes, workout tracking, programme views, completion evidence, and local persistence are implemented.',
+      'Current status is an interactive frontend prototype rather than a production fitness service.',
+      'Member and coach routes, workout tracking, member-created workouts, repeated-session history and a member Progress view are implemented. Workout evidence is retained locally on the device.',
       'Authentication, cloud persistence, real messaging, nutrition/recovery modules, and full production backend services are intentionally deferred.',
       'The product doctrine and technical roadmap explicitly preserve client agency while allowing trainer support when that relationship exists.'
     ],
     next: [
       'Introduce authentication and cloud persistence only when the prototype workflow is stable enough to justify it.',
-      'Expand nutrition, recovery, progress, and local-food context around the Train · Nourish · Recover · Progress · Thrive model.',
+      'Expand nutrition, recovery, richer progress insight, and local-food context around the Train · Nourish · Recover · Progress · Thrive model.',
       'Validate repeated use with trainers and members before committing to a larger production architecture.',
       'Add communication and coach review features without creating conflicting trainer-prescribed and self-directed workloads.'
     ],
@@ -197,7 +197,7 @@ export const portfolioProjects: PortfolioProject[] = [
         caption: 'The prototype coach workspace demonstrates how activity evidence could help prioritise review. The screens use prototype data, not a live production coaching service.'
       }
     ],
-    proofNote: 'These are product R&D / Alpha screens from the current Stawi prototype, not a launched production service.',
+    proofNote: 'Selected screens are from an earlier Stawi frontend prototype. They illustrate the product direction, not every current feature or a launched production service.',
     visual: 'stawi'
   }
 ];

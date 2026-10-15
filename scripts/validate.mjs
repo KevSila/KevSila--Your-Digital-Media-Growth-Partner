@@ -5,8 +5,11 @@ import { resolve } from 'node:path';
 const origin='https://kevsilaservices.netlify.app';
 const sitemap=await readFile('dist/sitemap.xml','utf8');
 const paths=[...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match=>new URL(match[1]).pathname);
-assert.equal(paths.length,15,'Expected every existing and new public route');
+assert.equal(paths.length,19,'Expected every existing and new public route');
 assert.equal(new Set(paths).size,paths.length,'Duplicate sitemap route');
+const retained=['/','/services','/privacy','/contact','/business-systems-automation','/portfolio','/services/technology-strategy-adoption','/services/business-platforms-integrations','/services/ai-workflow-automation','/services/data-dashboards-decision-support','/services/websites-digital-growth','/services/custom-applications-digital-products','/portfolio/asili-business-helper','/portfolio/beeepic-wisdom-mapper','/portfolio/stawi'];
+for(const route of retained) assert(paths.includes(route),`Existing route lost: ${route}`);
+for(const route of ['/solutions','/approach','/pricing','/about']) assert(paths.includes(route),`New route missing: ${route}`);
 const titles=new Set(),descriptions=new Set(),pages=new Map(),report=[];
 const decode=value=>value.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 for(const path of paths) {
@@ -31,6 +34,8 @@ for(const path of paths) {
   if(path.startsWith('/portfolio/')) assert(types.includes('CreativeWork'),`${path}: case study schema`);
   if(path==='/portfolio' || path==='/services') assert(types.includes('CollectionPage'));
   if(path!=='/') assert(types.includes('BreadcrumbList'));
+  if(path==='/about') assert(types.includes('AboutPage'));
+  if(['/solutions','/approach','/pricing'].includes(path)) assert(types.includes('WebPage'));
   const main=html.match(/<main[^>]*>([\s\S]*?)<\/main>/)?.[1] || '';
   const text=main.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
   assert(text.length>500,`${path}: meaningful initial HTML`);

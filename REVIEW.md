@@ -1,5 +1,7 @@
 # Silatech transformation — local review
 
+Historical first-pass report for commit 4700d48. See [REFINEMENT-REVIEW.md](REFINEMENT-REVIEW.md) for the current commercial refinement and 19-route validation.
+
 Implemented in `D:\CodexProjects\Silatech-Growth-Partners-Windows` on `codex/technology-solutions-revamp`, descended from release `362d4e09d9377c41f6d0c847845104c38b25fb69`. All work is local. No push, merge, PR operation or deployment was performed.
 
 ## Completed changes

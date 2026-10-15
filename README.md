@@ -38,6 +38,7 @@ The original incomplete checkout and its verified backup are separate and should
 The website retains React 19, TypeScript, Vite, Tailwind CSS 4, React Router, Motion and Lucide. No runtime or build dependencies were added for the revamp, and the release lockfile is unchanged.
 
 - `data/services.ts`: six service definitions, deliverables, scope boundaries and relationships.
+- `data/serviceDetails.ts`: business headlines, problems, platform options, audiences and evidence boundaries.
 - `data/portfolioProjects.ts`: portfolio evidence, roadmap, image descriptions and intrinsic dimensions.
 - `data/siteMetadata.ts`: public routes, unique metadata and structured data.
 - `components/`: shared brand styling, page sections, navigation and related-service links.
@@ -48,7 +49,7 @@ The website retains React 19, TypeScript, Vite, Tailwind CSS 4, React Router, Mo
 - `scripts/check-contact.mjs`: contact intent payload and enquiry privacy checks.
 - `scripts/check-http.mjs`: clean-URL production HTML and verification-file HTTP checks.
 
-The build generates the homepage, service overview, six service pages, business systems page, portfolio index, three case studies, enquiry page and privacy page. Non-home routes are emitted as `.html` files so Vite preview can serve clean URLs directly; a separate noindex `404.html` is also generated. The production sitemap is derived from the same metadata catalogue, and checks ensure it matches the tracked source sitemap.
+The build generates 19 public routes: homepage, service overview, six service pages, solutions, approach, pricing, about, business systems, portfolio index, three case studies, enquiry and privacy. Non-home routes are emitted as `.html` files so Vite preview can serve clean URLs directly; a separate noindex `404.html` is also generated. The production sitemap is derived from the same metadata catalogue, and checks ensure it matches the tracked source sitemap.
 
 Client hydration retains prerendered content while lazy page chunks load. Query-driven service selection is applied after hydration to keep initial markup consistent. Unknown paths render a client-side noindex page; the existing Netlify SPA fallback remains unchanged and still needs hosting-level status review before a release.
 
@@ -77,4 +78,4 @@ GA4 property `G-1JH25BX9F8` is preserved. Custom WhatsApp and phone events conta
 
 Do not push, merge or deploy without explicit approval. The connected public site remains `https://kevsilaservices.netlify.app/`; no domain, repository, deployment integration or Netlify setting was changed. The canonical host remains the existing production host.
 
-Review `REVIEW.md` for route-level SEO results, visual checks, performance measurements and remaining concerns. The existing dependency lockfile reports nine npm audit advisories (two low, one moderate, six high); dependency remediation should be reviewed and validated before a public release. Do not apply a broad automatic fix without inspecting the proposed changes.
+Review `REFINEMENT-REVIEW.md` for the latest 19-route SEO results, commercial refinement, source evidence, visual checks and remaining concerns. `REVIEW.md` records the first transformation milestone. The existing dependency lockfile reports nine npm audit advisories (two low, one moderate, six high); dependency remediation should be reviewed and validated before a public release. Do not apply a broad automatic fix without inspecting the proposed changes.
