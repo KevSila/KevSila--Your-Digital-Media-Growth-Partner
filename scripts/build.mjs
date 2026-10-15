@@ -1,3 +1,4 @@
+import { netlifyRedirects } from './routing.mjs';
 import { build, createServer } from 'vite';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
@@ -24,5 +25,6 @@ try {
   }
   const urls=publicPaths.map(path=>`  <url><loc>https://kevsilaservices.netlify.app${path==='/' ? '/' : path}</loc></url>`).join('\n');
   await writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
+  await writeFile('dist/_redirects',netlifyRedirects(publicPaths));
   console.log(`Prerendered ${publicPaths.length} public pages and a noindex 404 page.`);
 } finally { await server.close(); }

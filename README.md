@@ -35,7 +35,7 @@ The original incomplete checkout and its verified backup are separate and should
 
 ## Architecture
 
-The website retains React 19, TypeScript, Vite, Tailwind CSS 4, React Router, Motion and Lucide. No runtime or build dependencies were added for the revamp, and the release lockfile is unchanged.
+The website retains React 19, TypeScript, Vite, Tailwind CSS 4, React Router, Motion and Lucide. No runtime or build dependencies were added. The release-hardening pass updates existing compatible versions in the committed lockfile; see RELEASE-READINESS.md.
 
 - `data/services.ts`: six service definitions, deliverables, scope boundaries and relationships.
 - `data/serviceDetails.ts`: business headlines, problems, platform options, audiences and evidence boundaries.
@@ -51,7 +51,7 @@ The website retains React 19, TypeScript, Vite, Tailwind CSS 4, React Router, Mo
 
 The build generates 19 public routes: homepage, service overview, six service pages, solutions, approach, pricing, about, business systems, portfolio index, three case studies, enquiry and privacy. Non-home routes are emitted as `.html` files so Vite preview can serve clean URLs directly; a separate noindex `404.html` is also generated. The production sitemap is derived from the same metadata catalogue, and checks ensure it matches the tracked source sitemap.
 
-Client hydration retains prerendered content while lazy page chunks load. Query-driven service selection is applied after hydration to keep initial markup consistent. Unknown paths render a client-side noindex page; the existing Netlify SPA fallback remains unchanged and still needs hosting-level status review before a release.
+Client hydration retains prerendered content while lazy page chunks load. Query-driven service selection is applied after hydration to keep initial markup consistent. Unknown paths render a noindex page. The local Netlify configuration uses static file matching and a real HTTP-404 fallback; Vite preview does not emulate these rules.
 
 ## Services and philosophy
 
@@ -72,10 +72,10 @@ Platform names describe possible client tools, not certifications or formal part
 
 All five repaired portfolio images and `public/googlec555c9832d27b872.html` remain unchanged from release `362d4e09`. The three case studies remain available at their original URLs. Stawi has no prominent technical Alpha badge, and its prototype limitations are explained in the text. Asili sample traceability is not independently verified production evidence.
 
-GA4 property `G-1JH25BX9F8` is preserved. Custom WhatsApp and phone events contain method and placement, not enquiry drafts or message-bearing URLs. Browser enquiry fields prepare a WhatsApp message without a Silatech submission database; the visitor reviews and sends it in WhatsApp. Live Analytics reporting, enhanced-measurement settings and Search Console ownership require account-side verification.
+GA4 property `G-1JH25BX9F8` is preserved. Custom WhatsApp and phone contact_click events contain method and placement, not enquiry drafts or message-bearing URLs. Manual pageviews use canonical paths and catalogue titles. Local previews do not load GA4. Enhanced Measurement must be disabled/reviewed in the account before release to prevent duplicate history pageviews and unreviewed automatic collection. Browser enquiry fields prepare a WhatsApp message without a Silatech submission database; the visitor reviews and sends it in WhatsApp. Live Analytics reporting, enhanced-measurement settings and Search Console ownership require account-side verification.
 
 ## Release safeguards
 
-Do not push, merge or deploy without explicit approval. The connected public site remains `https://kevsilaservices.netlify.app/`; no domain, repository, deployment integration or Netlify setting was changed. The canonical host remains the existing production host.
+Do not push, merge or deploy without explicit approval. The connected public site remains `https://kevsilaservices.netlify.app/`; no live domain, repository, deployment integration or Netlify setting was changed. Local netlify.toml and generated redirect rules define the proposed release behaviour and only take effect on a later approved deployment. The canonical host remains the existing production host.
 
-Review `REFINEMENT-REVIEW.md` for the latest 19-route SEO results, commercial refinement, source evidence, visual checks and remaining concerns. `REVIEW.md` records the first transformation milestone. The existing dependency lockfile reports nine npm audit advisories (two low, one moderate, six high); dependency remediation should be reviewed and validated before a public release. Do not apply a broad automatic fix without inspecting the proposed changes.
+Review `RELEASE-READINESS.md` for the current security breakdown, deployment checklist, test results and remaining account-side gates. `REFINEMENT-REVIEW.md` and `REVIEW.md` retain the earlier milestones. The hardened lockfile currently reports zero known npm vulnerabilities; rerun `npm run check:security` before a later release.

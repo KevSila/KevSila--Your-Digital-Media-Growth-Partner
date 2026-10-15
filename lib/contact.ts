@@ -1,6 +1,7 @@
 export type ContactMethod = 'whatsapp' | 'phone';
 export function trackContact(method: ContactMethod, placement='site') {
-  window.gtag?.('event',method==='whatsapp' ? 'generate_lead' : 'contact_click',{method,placement});
+  // A click is contact intent, not a submitted or qualified lead.
+  window.gtag?.('event','contact_click',{method,placement});
 }
 export function contactMessage(intent: string, starting: string, serviceTitle: string | undefined, message: string) {
   const label=intent==='project' ? 'a project' : intent==='support' ? 'ongoing support' : 'a technology consultation';

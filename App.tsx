@@ -1,3 +1,4 @@
+import { trackPageView } from './lib/analytics';
 const SolutionsPage=lazy(()=>import('./pages/SolutionsPage'));
 const ApproachPage=lazy(()=>import('./pages/ApproachPage'));
 const PricingPage=lazy(()=>import('./pages/PricingPage'));
@@ -17,6 +18,7 @@ const PrivacyPage=lazy(()=>import('./pages/PrivacyPage'));
 function RouteScrollManager() {
   const { pathname, hash }=useLocation();
   const previousPath=useRef(pathname);
+  useEffect(()=>{trackPageView(pathname);},[pathname]);
   useEffect(()=>{
     if(previousPath.current!==pathname) document.getElementById('main-content')?.focus({preventScroll:true});
     previousPath.current=pathname;

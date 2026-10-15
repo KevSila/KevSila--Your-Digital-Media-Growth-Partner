@@ -1,5 +1,7 @@
 # Silatech commercial refinement — local review
 
+Historical report for 7666aff. See [RELEASE-READINESS.md](RELEASE-READINESS.md) for the subsequent dependency fixes, Netlify routing and analytics release gates.
+
 Completed 15 October 2026 in D:\CodexProjects\Silatech-Growth-Partners-Windows, on codex/technology-solutions-revamp. Builds and checks are local; no push, merge, deployment, external message or production configuration change was performed. The first transformation remains available at commit 4700d48.
 
 ## Completed changes

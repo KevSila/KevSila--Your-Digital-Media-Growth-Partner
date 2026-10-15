@@ -8,8 +8,10 @@
     "build": "node scripts/build.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "check": "npm run typecheck && node scripts/check-contact.mjs && node scripts/validate.mjs",
-    "check:http": "node scripts/check-http.mjs"
+    "check": "npm run typecheck && node scripts/check-contact.mjs && node scripts/validate.mjs && node scripts/check-analytics.mjs && node scripts/check-hosting.mjs",
+    "check:http": "node scripts/check-http.mjs",
+    "check:netlify": "node scripts/check-netlify.mjs",
+    "check:security": "npm audit --audit-level=low"
   },
   "dependencies": {
     "clsx": "^2.1.1",

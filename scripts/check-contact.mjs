@@ -8,7 +8,7 @@ const compiled=ts.transpileModule(fs.readFileSync('lib/contact.ts','utf8'),{comp
 vm.runInNewContext(compiled,context);
 const {trackContact,contactMessage}=context.exports;
 trackContact('whatsapp','enquiry');trackContact('phone');
-assert.deepEqual(JSON.parse(JSON.stringify(events)),[['event','generate_lead',{method:'whatsapp',placement:'enquiry'}],['event','contact_click',{method:'phone',placement:'site'}]]);
+assert.deepEqual(JSON.parse(JSON.stringify(events)),[['event','contact_click',{method:'whatsapp',placement:'enquiry'}],['event','contact_click',{method:'phone',placement:'site'}]]);
 const secret='Private draft for test only';
 const draft=contactMessage('project','Starting from scratch','Websites & Digital Growth Infrastructure',` ${secret} `);
 assert(draft.includes('a project') && draft.includes('Starting from scratch') && draft.endsWith(secret));

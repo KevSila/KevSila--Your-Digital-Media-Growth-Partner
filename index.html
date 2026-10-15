@@ -6,14 +6,6 @@
     <meta name="theme-color" content="#071426" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preserve the prepared GA4 property. Account-side settings remain client-owned. -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1JH25BX9F8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1JH25BX9F8');
-    </script>
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <title>Technology Solutions &amp; Digital Transformation | Silatech Growth Partners</title>
     <meta name="description" content="Choose and implement the right technology, connect your tools, streamline operations and adopt AI responsibly. Support from first digital setup to custom products." />
@@ -32,6 +24,23 @@
     <meta name="twitter:title" content="Technology Solutions &amp; Digital Transformation | Silatech" />
     <meta name="twitter:description" content="Choose, implement and improve the technology your business needs." />
     <meta name="twitter:image" content="https://kevsilaservices.netlify.app/og-image.png" />
+    <!-- Preserve the GA4 property; previews never load the Google tag. -->
+    <script>
+      if (window.location.origin === 'https://kevsilaservices.netlify.app' && !document.querySelector('meta[name=robots]')?.content.includes('noindex')) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){window.dataLayer.push(arguments);};
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-1JH25BX9F8', {
+          send_page_view: false,
+          page_location: document.querySelector('link[rel=canonical]').href,
+          page_referrer: document.referrer ? new URL(document.referrer).origin + '/' : ''
+        });
+        var analyticsScript = document.createElement('script');
+        analyticsScript.async = true;
+        analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-1JH25BX9F8';
+        document.head.appendChild(analyticsScript);
+      }
+    </script>
   </head>
   <body>
     <div id="root"><noscript>Silatech helps businesses choose and implement the right technology, connect tools, streamline operations, adopt AI responsibly and make better decisions. Call +254 717 578 394 to discuss your needs.</noscript></div>
