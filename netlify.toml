@@ -1,0 +1,11 @@
+# Local release configuration; takes effect only after an approved deployment.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Explicit redirects preserve the existing extensionless, non-trailing-slash URLs.
+[build.processing.html]
+  pretty_urls = false

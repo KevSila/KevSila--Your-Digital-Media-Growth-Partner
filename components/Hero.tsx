@@ -1,53 +1,34 @@
-import { motion } from 'motion/react';
-import { ArrowRight, Check, MessageSquareText, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, ClipboardCheck, Compass, Settings2, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { WHATSAPP_LINK } from '../constants';
-
-const Hero = () => (
-  <section className="relative overflow-hidden bg-ink pb-20 pt-32 sm:pb-28 sm:pt-40">
-    <div className="hero-grid absolute inset-0" />
-    <div className="hero-orb absolute -left-36 -top-36 h-[650px] w-[650px]" />
-    <div className="mint-orb absolute -right-40 bottom-0 h-[520px] w-[520px]" />
-    <div className="shell relative grid min-w-0 items-center gap-10 sm:gap-14 lg:grid-cols-[1.08fr_.92fr]">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .65 }}>
-        <span className="eyebrow-light mb-6"><Sparkles className="h-4 w-4" /> AI-powered business systems for growing teams</span>
-        <h1 className="display-title max-w-4xl text-white">Stop losing leads. Simplify operations. <span className="text-gradient">Grow with better systems.</span></h1>
-        <p className="body-lg mt-7 max-w-2xl text-slate-copy">Silatech helps SMEs, professional firms, and growing organizations organize customer inquiries, automate follow-ups, streamline reporting, and make better decisions using practical business systems.</p>
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-primary w-full sm:w-auto">Book a systems diagnostic <ArrowRight className="h-4 w-4" /></a>
-          <Link to="/business-systems-automation" className="btn-light w-full sm:w-auto">Explore our solutions</Link>
-        </div>
-        <div className="mt-9 flex flex-wrap gap-x-5 gap-y-3 text-xs font-semibold text-slate-300 sm:text-sm">
-          {['Built around your workflow', 'Low-cost tools first', 'Training and handover included'].map(item => <span className="flex items-center gap-2" key={item}><Check className="h-4 w-4 text-mint" />{item}</span>)}
-        </div>
-      </motion.div>
-
-      <motion.div initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .15, duration: .7 }} className="relative mx-auto w-full min-w-0 max-w-xl">
-        <div className="absolute -inset-5 rounded-[2.5rem] bg-cobalt/15 blur-2xl" />
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/12 bg-[#0d203b] p-4 shadow-2xl sm:p-6">
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-white/8 pb-4">
-            <div><p className="text-xs font-bold text-white">Lead follow-up workspace</p><p className="mt-1 text-[11px] text-slate-copy">Today’s activity</p></div>
-            <span className="rounded-full bg-mint/12 px-3 py-1 text-[10px] font-bold text-mint">Live workflow</span>
+const stages = [
+  { icon: ClipboardCheck, title: 'Assess', copy: 'Business requirements, people and existing tools.' },
+  { icon: Compass, title: 'Select', copy: 'Suitable platforms and a practical implementation plan.' },
+  { icon: Settings2, title: 'Implement', copy: 'Configure, connect or build. Test and support adoption.' },
+  { icon: TrendingUp, title: 'Improve', copy: 'Review performance, maintain the solution and refine.' },
+];
+export default function Hero() {
+  return (
+    <section className="relative overflow-hidden bg-ink pb-16 pt-32 sm:pb-24 sm:pt-40">
+      <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="hero-orb pointer-events-none absolute -left-36 -top-36 h-[650px] w-[650px]" aria-hidden="true" />
+      <div className="shell relative">
+        <p className="mb-10 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[.16em] text-mint sm:mb-14"><span className="h-2 w-2 shrink-0 rounded-full bg-mint" />Technology Solutions & Digital Transformation</p>
+        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_.85fr] lg:gap-16">
+          <div>
+            <h1 className="hero-title max-w-4xl">Practical technology solutions <span className="text-sky">for your business.</span></h1>
+            <p className="body-lg mt-7 max-w-2xl text-slate-copy">We help businesses plan, build and improve their digital operations through websites, business software, platform integrations, AI automation, data analytics and custom applications.</p>
+            <p className="mt-5 max-w-xl text-sm leading-7 text-slate-300">Whether you’re setting up essential technology or improving existing systems, we help you choose the right approach, implement it effectively and get lasting value from your investment.</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap"><Link to="/services" className="btn-primary">Explore our services <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link><Link to="/contact?intent=project" className="btn-light">Discuss your project <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link></div>
+            <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3 text-xs text-slate-copy">{['Founder-led delivery', 'Practical implementation', 'Training and handover'].map(item=><span key={item} className="flex items-center gap-2"><Check aria-hidden="true" className="h-3.5 w-3.5 text-mint" />{item}</span>)}</div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-[.92fr_1.08fr]">
-            <div className="rounded-2xl bg-white/[.055] p-4">
-              <div className="mb-4 flex items-center gap-2"><span className="grid h-8 w-8 place-items-center rounded-full bg-[#25D366]/15"><MessageSquareText className="h-4 w-4 text-[#54e68b]" /></span><div><p className="text-[11px] font-bold text-white">New WhatsApp inquiry</p><p className="text-[10px] text-slate-copy">2 minutes ago</p></div></div>
-              <div className="rounded-xl bg-white/[.06] p-3 text-[11px] leading-5 text-slate-300">“Hi, I need a quote and want to know when you can deliver.”</div>
-              <div className="mt-4 space-y-2 text-[10px]"><p className="flex flex-wrap justify-between gap-2 text-slate-copy"><span>Lead category</span><b className="text-white">Qualified inquiry</b></p><p className="flex flex-wrap justify-between gap-2 text-slate-copy"><span>Next action</span><b className="text-mint">Follow up today</b></p></div>
-            </div>
-            <div className="rounded-2xl bg-white p-4 text-ink">
-              <div className="flex flex-wrap items-end justify-between gap-2"><div className="min-w-0"><p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Owner view</p><p className="font-display text-lg font-bold">Opportunity pipeline</p></div><span className="text-xs font-bold text-cobalt">This week</span></div>
-              <div className="mt-6 flex h-28 items-end gap-2" aria-label="Example weekly inquiry chart">
-                {[38,58,45,78,63,92,72].map((height, index) => <div key={index} className="flex-1 rounded-t-md bg-[#dbe6ff]" style={{height: `${height}%`}}><div className="metric-bar h-full rounded-t-md opacity-80" /></div>)}
-              </div>
-              <div className="mt-4 grid grid-cols-3 gap-2 border-t border-slate-100 pt-4"><div><p className="text-[9px] text-slate-500">New</p><p className="font-display text-lg font-bold">12</p></div><div><p className="text-[9px] text-slate-500">Follow-ups</p><p className="font-display text-lg font-bold">7</p></div><div><p className="text-[9px] text-slate-500">Won</p><p className="font-display text-lg font-bold text-cobalt">4</p></div></div>
-            </div>
+          <div className="technology-map mx-auto w-full max-w-lg">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4"><span className="text-[10px] font-bold uppercase tracking-[.18em] text-slate-copy">From requirements to results</span><span className="text-[10px] text-mint">The Silatech approach</span></div>
+            <ol className="space-y-3" aria-label="Assess, select, implement and improve">{stages.map(({icon: Icon,title,copy},index)=><li key={title} className={`flex items-start gap-4 rounded-2xl border p-5 ${index===2 ? 'border-mint/25 bg-mint/[.07]' : 'border-white/10 bg-white/[.035]'}`}><span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-cobalt/15 text-sky"><Icon aria-hidden="true" className="h-5 w-5" /></span><div className="flex-1"><div className="flex items-center justify-between gap-3"><h2 className="text-base font-bold">{title}</h2><span className="text-[10px] font-bold text-mint">0{index+1}</span></div><p className="mt-2 text-xs leading-6 text-slate-copy">{copy}</p></div></li>)}</ol>
+            <Link to="/approach" className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-sky">How we deliver <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
           </div>
-          <p className="mt-4 text-center text-[10px] text-slate-copy">Illustrative Silatech system interface</p>
         </div>
-      </motion.div>
-    </div>
-  </section>
-);
-
-export default Hero;
+        <div className="mt-14 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-sm leading-7 text-slate-copy sm:mt-20 lg:flex-row"><p>Technology that fits your business—and helps it work better.</p><Link to="/portfolio" className="inline-flex items-center gap-2 font-semibold text-white">View implementation evidence <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link></div>
+      </div>
+    </section>
+  );
+}

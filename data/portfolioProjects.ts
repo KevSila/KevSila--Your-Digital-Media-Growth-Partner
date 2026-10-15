@@ -15,7 +15,7 @@ export type PortfolioProject = {
   evidence: string[];
   next: string[];
   externalLinks?: { label: string; href: string }[];
-  proofScreens?: { src: string; alt: string; label: string; caption: string }[];
+  proofScreens?: { src: string; alt: string; label: string; caption: string; width: number; height: number }[];
   proofNote?: string;
   visual: 'asili' | 'beeepic' | 'stawi';
 };
@@ -30,7 +30,7 @@ export const portfolioProjects: PortfolioProject[] = [
     summary:
       'Evolving a Kenyan honey brand from a product website into a connected business system for ordering, customer records, stock, payments, reporting, and future traceability.',
     metaDescription:
-      'See how Silatech evolved Asili from a product website into a connected commerce and operations system with ordering, stock, payments, reporting, and traceability foundations.',
+      'See Asili’s working commerce and operations system: ordering, stock, payments and owner views, with a sample batch-passport demonstration and a staged roadmap.',
     disciplines: ['Business systems', 'Website & UX', 'Operations', 'Traceability'],
     problem:
       'A product website can create interest, but the business still needs a dependable way to turn that interest into orders, preserve customer and payment records, understand stock, and build trust around where the product came from. The challenge was to connect the customer journey with the operating records behind it without creating unnecessary ERP complexity.',
@@ -70,12 +70,14 @@ export const portfolioProjects: PortfolioProject[] = [
     proofScreens: [
       {
         src: '/portfolio/asili-order.jpg',
+        width: 560, height: 301,
         alt: 'Asili public honey ordering interface showing jar selection and delivery details',
         label: 'Customer ordering',
         caption: 'A customer-facing order flow connects product selection and delivery details to structured order records.'
       },
       {
-        src: '/portfolio/asili-dashboard.jpg',
+        src: '/portfolio/asili-dashboard.webp',
+        width: 480, height: 258,
         alt: 'Asili Business Helper owner dashboard showing orders, sales, product variants and sales channels',
         label: 'Owner visibility',
         caption: 'The owner dashboard brings order status, sales, product variants, and sales-channel visibility into one operating view.'
@@ -127,7 +129,8 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
     proofScreens: [
       {
-        src: '/portfolio/beeepic-blueprint.jpg',
+        src: '/portfolio/beeepic-blueprint.webp',
+        width: 480, height: 237,
         alt: 'BeeEPiC WISDOM Delegation Blueprint showing recommended support and a client-facing systems summary',
         label: 'Recommendation blueprint',
         caption: 'The workflow turns structured assessment inputs into a client-readable delegation blueprint, with review controls kept separate from the client-facing output.'
@@ -141,9 +144,9 @@ export const portfolioProjects: PortfolioProject[] = [
     name: 'Stawi — Fitness & Wellbeing Platform',
     shortName: 'Stawi',
     kicker: 'Product strategy · Member experience · Coach visibility',
-    stage: 'Product R&D · Alpha 0.6.0',
+    stage: '',
     summary:
-      'A client-centred, trainer-connected fitness and wellbeing product exploring how training, nourishment, recovery, progress, and professional support can work as one coherent experience.',
+      'An interactive frontend prototype for a client-centred, trainer-connected fitness and wellbeing product, exploring how training, nourishment, recovery, progress, and professional support can work as one coherent experience.',
     metaDescription:
       'Explore Stawi, a Silatech product R&D case study connecting member training, programmes, progress, recovery context, and trainer visibility in a mobile-first fitness experience.',
     disciplines: ['Product strategy', 'UX architecture', 'Fitness workflows', 'PWA prototype'],
@@ -156,7 +159,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'Designed distinct member and coach workspaces around the same underlying programme and workout evidence.',
       'Built programme, workout-player, completion-summary, client, review, and attention flows in an interactive frontend prototype.',
       'Added a member-created workout path that remains separate from trainer-prescribed programme completion.',
-      'Introduced durable local workout-session evidence so refreshes do not silently erase active or completed work.',
+      'Implemented device-local workout-session history for active and completed work, including repeated sessions. Browser storage can still be cleared or evicted and is not a backup.',
       'Separated workout completion from longer-period programme adherence so the product does not collapse different behaviours into one metric.',
       'Created an installable PWA shell and a structured exercise catalogue foundation for later product expansion.'
     ],
@@ -167,32 +170,34 @@ export const portfolioProjects: PortfolioProject[] = [
       'Shows Silatech product thinking beyond workflow automation: information architecture, interaction design, domain rules, and product boundaries.'
     ],
     evidence: [
-      'Current status is an interactive frontend Alpha 0.6.0 prototype rather than a production fitness service.',
-      'Member and coach routes, workout tracking, programme views, completion evidence, and local persistence are implemented.',
+      'Current status is an interactive frontend prototype rather than a production fitness service.',
+      'Member and coach routes, workout tracking, member-created workouts, repeated-session history and a member Progress view are implemented. Workout evidence is retained locally on the device.',
       'Authentication, cloud persistence, real messaging, nutrition/recovery modules, and full production backend services are intentionally deferred.',
       'The product doctrine and technical roadmap explicitly preserve client agency while allowing trainer support when that relationship exists.'
     ],
     next: [
       'Introduce authentication and cloud persistence only when the prototype workflow is stable enough to justify it.',
-      'Expand nutrition, recovery, progress, and local-food context around the Train · Nourish · Recover · Progress · Thrive model.',
+      'Expand nutrition, recovery, richer progress insight, and local-food context around the Train · Nourish · Recover · Progress · Thrive model.',
       'Validate repeated use with trainers and members before committing to a larger production architecture.',
       'Add communication and coach review features without creating conflicting trainer-prescribed and self-directed workloads.'
     ],
     proofScreens: [
       {
-        src: 'https://raw.githubusercontent.com/KevSila/trainer-os/main/docs/design-references/member-today.png',
+        src: '/portfolio/stawi-member.webp',
+        width: 480, height: 260,
         alt: 'Stawi member Today screen with training, programme adherence, nutrition context and coach message',
         label: 'Member Today',
-        caption: 'The member workspace brings prescribed training, adherence evidence, nutrition context, and coach communication into one daily view.'
+        caption: 'The prototype explores a daily member view around training and adherence evidence. Nutrition and coach-message interface elements do not represent connected production services.'
       },
       {
-        src: 'https://raw.githubusercontent.com/KevSila/trainer-os/main/docs/design-references/trainer-attention.png',
+        src: '/portfolio/stawi-coach.webp',
+        width: 480, height: 260,
         alt: 'Stawi coach dashboard showing priority clients who need review or follow-up',
         label: 'Coach attention',
-        caption: 'The coach workspace prioritizes clients needing attention from observable activity instead of forcing the trainer to inspect every client manually.'
+        caption: 'The prototype coach workspace demonstrates how activity evidence could help prioritise review. The screens use prototype data, not a live production coaching service.'
       }
     ],
-    proofNote: 'These are product R&D / Alpha screens from the current Stawi prototype, not a launched production service.',
+    proofNote: 'Selected screens are from an earlier Stawi frontend prototype. They illustrate the product direction, not every current feature or a launched production service.',
     visual: 'stawi'
   }
 ];

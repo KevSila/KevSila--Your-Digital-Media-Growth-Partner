@@ -68,3 +68,23 @@ a, button { -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Shared extensions to the established Silatech design system. */
+.hero-title { font-family: var(--font-display); font-size: clamp(2.55rem, 4.25vw, 4.4rem); font-weight: 700; line-height: 1.08; letter-spacing: -.05em; }
+.technology-map { border: 1px solid rgba(255,255,255,.13); border-radius: 1.75rem; background: linear-gradient(155deg, #122b49, #0b1c34); padding: clamp(1.1rem, 3vw, 1.75rem); box-shadow: 0 30px 90px -45px rgba(0,0,0,.7); }
+.path-card { border-radius: 1.5rem; padding: clamp(1.5rem, 3vw, 2.25rem); }
+.page-hero { padding-top: 9rem; padding-bottom: 5rem; background: radial-gradient(ellipse at 90% 0%, rgba(40,100,255,.15), transparent 65%), #071426; }
+.project-cover { display: block; height: 260px; padding: 1.5rem 1.5rem 0; overflow: hidden; border: 1px solid #dce5f1; border-radius: 1.5rem; background: #e9edf5; }
+.project-cover-asili { background: #edf0e6; }
+.project-cover-beeepic { background: #e9edf8; }
+.project-cover-stawi { background: #e1eeea; }
+.field-label { display: block; margin-bottom: .65rem; color: #071426; font-size: .8rem; font-weight: 700; }
+.field { display: block; width: 100%; min-height: 3rem; padding: .85rem 1rem; border: 1px solid #bdcbdc; border-radius: .8rem; color: #071426; background: #f8fafc; font: inherit; font-size: .875rem; line-height: 1.6; }
+.skip-link { position: fixed; z-index: 100; top: .75rem; left: 1rem; transform: translateY(-200%); padding: .8rem 1.1rem; border-radius: .75rem; background: #38d6a5; color: #071426; font-weight: 700; }
+.skip-link:focus { transform: translateY(0); }
+#main-content:focus { outline: none; }
+[hidden] { display: none !important; }
+@media (max-width: 639px) {
+  .hero-title { font-size: clamp(2.45rem, 10vw, 3.2rem); }
+  .page-hero { padding-top: 8rem; padding-bottom: 3.5rem; }
+}

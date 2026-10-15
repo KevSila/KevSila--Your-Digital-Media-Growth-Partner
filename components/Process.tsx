@@ -1,21 +1,11 @@
+import { Link } from 'react-router-dom';
 const steps = [
-  ['Discover', 'Understand the people, tools, records, and routines behind the current workflow.'],
-  ['Diagnose', 'Find where leads, time, money, or information are being lost.'],
-  ['Design', 'Choose the simplest useful system and map how it should work.'],
-  ['Deploy', 'Build, test, document, and train the people who will use it.'],
-  ['Optimize', 'Review adoption, repair weak points, and improve as the business grows.'],
+  ['Understand', 'Listen to the people doing the work. Clarify the problem, priorities and starting point.'],
+  ['Choose', 'Compare practical options. Use existing tools where they fit; build custom where justified.'],
+  ['Implement', 'Configure, connect or build in clear stages, with testing and review along the way.'],
+  ['Enable', 'Document the result, train the people using it, and hand over access and ownership.'],
+  ['Improve', 'Review adoption and agreed measures of value. Refine what helps; remove what does not.'],
 ];
-
-const Process = () => (
-  <section id="process" className="relative overflow-hidden bg-ink py-24 sm:py-32">
-    <div className="hero-grid absolute inset-0 opacity-40" />
-    <div className="shell relative">
-      <div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr]"><div><span className="eyebrow-light">How we work</span><h2 className="section-title mt-5">A clear path from operational friction to a system your team can use.</h2></div><p className="body-lg max-w-2xl text-slate-copy lg:justify-self-end">Technology follows the workflow. We first understand what is happening, then build only what creates practical value.</p></div>
-      <ol className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        {steps.map(([title, copy], index) => <li key={title} className="relative border-t border-white/12 pt-7"><span className="font-display text-xs font-bold text-mint">0{index + 1}</span><h3 className="mt-5 text-xl font-bold">{title}</h3><p className="mt-4 text-sm leading-6 text-slate-copy">{copy}</p></li>)}
-      </ol>
-    </div>
-  </section>
-);
-
-export default Process;
+export default function Process() {
+  return <section id="process" className="bg-ink py-20 sm:py-28"><div className="shell"><div className="grid gap-6 lg:grid-cols-2"><div><span className="eyebrow-light">Our approach</span><h2 className="section-title mt-5">Clarity first.<br /><span className="text-sky">Technology follows.</span></h2></div><div className="lg:pt-9"><p className="body-lg max-w-xl text-slate-copy">We begin with the real business problem and recommend the smallest maintainable solution that delivers value. Sometimes that means a better process. Sometimes it means a new product.</p></div></div><ol className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-5">{steps.map(([title, copy], index) => <li key={title} className="border-t border-white/15 pt-6"><span className="text-xs font-bold text-mint">0{index + 1}</span><h3 className="mt-5 text-xl font-bold">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-copy">{copy}</p></li>)}</ol><blockquote className="mt-14 border-l-2 border-mint py-2 pl-6 font-display text-xl font-medium leading-relaxed text-white sm:text-2xl">“Systemic clarity follows the subtraction of the unnecessary.”</blockquote><Link to="/approach" className="btn-light mt-8">Explore our delivery approach</Link></div></section>;
+}
