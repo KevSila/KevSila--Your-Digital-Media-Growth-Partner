@@ -6,3 +6,6 @@ dist/
 .DS_Store
 *.log
 .netlify/
+
+# Google AI Studio prompt exports / internal working context
+migrated_prompt_history/
